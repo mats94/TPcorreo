@@ -12,6 +12,9 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -60,4 +63,5 @@ public class Alta extends JPanel{
 			box.add(Box.createHorizontalStrut(10));		
 			add(box);
 		}
+			
 }
