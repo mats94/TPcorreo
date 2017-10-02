@@ -1,4 +1,4 @@
-package clase1;
+package interfaces;
 import java.awt.Color;
 import java.awt.FlowLayout;
 
@@ -28,7 +28,7 @@ public class Test {
 		frame.setSize(300, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //para matar tanto grafica como el back(sino te cierra la ventana pero sigue corriendo)
 		//frame.setBackground(new JLabel(new ImageIcon("/Users/matiasbarros/Downloads/correo2.jpg")));
-		frame.getContentPane().add(new Pruebapanel1());
+		frame.getContentPane().add(new Alta());
 		
 		
 		frame.setVisible(true);
