@@ -33,6 +33,7 @@ public class Test {
 		frame.setVisible(true);
 		
 		JFrame frame1 = new JFrame("Correo");
+		frame1.setJMenuBar(menubar);
 		frame1.setTitle("Baja");
 		
 		frame1.setSize(300, 500);
@@ -41,6 +42,7 @@ public class Test {
 		frame1.setVisible(true);
 		
 		JFrame frame2 = new JFrame("Correo");
+		frame2.setJMenuBar(menubar);
 		frame2.setTitle("Modificacion");
 		
 		frame2.setSize(300, 500);
