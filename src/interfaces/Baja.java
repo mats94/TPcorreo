@@ -1,6 +1,7 @@
 package interfaces;
 
 import java.awt.BorderLayout;
+import java.awt.event.*;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -21,8 +22,8 @@ import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Baja extends JPanel{
-	
+public class Baja extends JPanel implements ActionListener{
+	JButton salir;
 	public Baja() {
 		initUI();
 	}
@@ -33,7 +34,12 @@ public class Baja extends JPanel{
 			createButton("Buscar");
 			createLabelTextfield("Motivo de la baja:", 10);
 			createButton("Enviar formulario");
-			createButtons("Volver al menu principal","Salir");
+			createButton("Volver al menu principal");
+			
+			salir=new JButton("Salir Del Programa");
+				salir.setBounds(300,250,100,30);
+				add(salir);
+				salir.addActionListener(this);
 			
 		}
 		private void createLabelTextfield(String campo,int capacidad) {
@@ -72,6 +78,15 @@ public class Baja extends JPanel{
 			box.add(Box.createHorizontalStrut(10));		
 			add(box);
 		}
+		
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource()==salir) {
+	            System.exit(0);
+	        }
+			
+		}
 }
+
+
 
 		

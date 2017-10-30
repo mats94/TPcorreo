@@ -1,6 +1,7 @@
 package interfaces;
 
 import java.awt.BorderLayout;
+import java.awt.event.*;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -18,8 +19,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Modificacion extends JPanel{
-	
+public class Modificacion extends JPanel implements ActionListener{
+	JButton salir;
 	public Modificacion() {
 		initUI();
 	}
@@ -34,7 +35,12 @@ public class Modificacion extends JPanel{
 			createLabelTextfield("Nuevo origen:", 10);
 			createLabelTextfield("Nuevo destino:", 10);
 			createButton("Enviar formulario");
-			createButtons("Volver al menu principal","Salir");
+			createButton("Volver al menu principal");
+			
+			salir=new JButton("Salir Del Programa");
+				salir.setBounds(300,250,100,30);
+				add(salir);
+				salir.addActionListener(this);
 			
 		}
 		private void createLabelTextfield(String campo,int capacidad) {
@@ -72,5 +78,12 @@ public class Modificacion extends JPanel{
 			box.add(new JButton(button1));
 			box.add(Box.createHorizontalStrut(10));	
 			add(box);
+		}
+
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource()==salir) {
+	            System.exit(0);
+	        }
+			
 		}
 }
