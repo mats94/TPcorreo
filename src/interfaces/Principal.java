@@ -18,22 +18,17 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-public class Baja extends JPanel{
+public class Principal extends JPanel{
 	
-	public Baja() {
+	public Principal() {
 		initUI();
 	}
 
 		private void initUI() {
-			createLabelTextfield("Nombre del cliente:", 10);
-			createLabelTextfield("Documento:", 10);
-			createButton("Buscar");
-			createLabelTextfield("Motivo de la baja:", 10);
-			createButton("Enviar formulario");
-			createButtons("Volver al menu principal","Salir");
+			createButton("Crear Empleado");
+			createButton("Modificar Empleado");
+			createButton("Eliminar Empleado");
+			createButton("Salir");
 			
 		}
 		private void createLabelTextfield(String campo,int capacidad) {
@@ -73,5 +68,3 @@ public class Baja extends JPanel{
 			add(box);
 		}
 }
-
-		

@@ -33,7 +33,8 @@ public class Alta extends JPanel{
 			createLabelTextfield("Modalidad de envio :", 10);
 			createLabelTextfield("Destino :", 10);
 			createLabelTextfield("Origen :", 10);
-			createButtons("Enviar formulario","Cancelar");
+			createButton("Enviar formulario");
+			createButtons("Volver al menu principal","Salir");
 			
 		}
 		private void createLabelTextfield(String campo,int capacidad) {
@@ -51,6 +52,15 @@ public class Alta extends JPanel{
 			JPanel aux = new JPanel();
 			aux.add(textField);
 			return aux;
+		}
+		
+		private void createButton(String button1) {
+
+			Box box = Box.createHorizontalBox();
+			box.add(Box.createHorizontalGlue());
+			box.add(new JButton(button1));
+			box.add(Box.createHorizontalStrut(10));		
+			add(box);
 		}
 		
 		private void createButtons(String button1, String button2) {

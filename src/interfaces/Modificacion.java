@@ -33,7 +33,8 @@ public class Modificacion extends JPanel{
 			createLabelTextfield("Nuevo Tipo de envio:", 10);
 			createLabelTextfield("Nuevo origen:", 10);
 			createLabelTextfield("Nuevo destino:", 10);
-			createButtons("Enviar formulario","Cancelar");
+			createButton("Enviar formulario");
+			createButtons("Volver al menu principal","Salir");
 			
 		}
 		private void createLabelTextfield(String campo,int capacidad) {
