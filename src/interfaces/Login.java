@@ -18,36 +18,52 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-public class Baja extends JPanel implements ActionListener{
+public class Login extends JPanel implements ActionListener{
 	JButton salir;
-	JButton volver;
-	public Baja() {
+	JButton entrar;
+	JLabel userLabel;
+	JTextField userText;
+	JLabel passwordLabel;
+	JPasswordField passwordText;
+	JButton loginButton;
+	public Login() {
 		initUI();
 	}
 
 		private void initUI() {
-			createLabelTextfield("Nombre del cliente:", 10);
-			createLabelTextfield("Documento:", 10);
-			createButton("Buscar");
-			createLabelTextfield("Motivo de la baja:", 10);
-			createButton("Enviar formulario");
+	
+
 			
+			JLabel userLabel = new JLabel("Usuario:  ");
+			userLabel.setBounds(10, 10, 70, 25);
+			add(userLabel);
+
+			JTextField userText = new JTextField(20);
+			userText.setBounds(100, 10, 160, 25);
+			add(userText);
+
+			JLabel passwordLabel = new JLabel("Password:");
+			passwordLabel.setBounds(10, 40, 80, 25);
+			add(passwordLabel);
+
+			JPasswordField passwordText = new JPasswordField(20);
+			passwordText.setBounds(100, 40, 160, 25);
+			add(passwordText);
+
 			
-			volver=new JButton("Volver al menu principal");
-			volver.setBounds(300,250,100,30);
-		 	add(volver);
-		 	volver.addActionListener(this);
+			entrar=new JButton("Entrar");
+			entrar.setBounds(300,250,100,30);
+		 	add(entrar);
+		 	entrar.addActionListener(this);
+
 			
-			salir=new JButton("Salir Del Programa");
-				salir.setBounds(300,250,100,30);
-				add(salir);
-				salir.addActionListener(this);
-			
+			salir=new JButton("Salir");
+			 	salir.setBounds(300,250,100,30);
+			 	add(salir);
+			 	salir.addActionListener(this);
 		}
 		private void createLabelTextfield(String campo,int capacidad) {
 			
@@ -66,46 +82,23 @@ public class Baja extends JPanel implements ActionListener{
 			return aux;
 		}
 		
-		private void createButtons(String button1, String button2) {
-
-			Box box = Box.createHorizontalBox();
-			box.add(Box.createHorizontalGlue());
-			box.add(new JButton(button1));
-			box.add(Box.createHorizontalStrut(10));
-			box.add(new JButton(button2));
-			box.add(Box.createHorizontalStrut(10));		
-			add(box);
-		}
-		
-		private void createButton(String button1) {
-
-			Box box = Box.createHorizontalBox();
-			box.add(Box.createHorizontalGlue());
-			box.add(new JButton(button1));
-			box.add(Box.createHorizontalStrut(10));		
-			add(box);
-		}
 		
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource()==salir) {
 	            System.exit(0);
 			}
-	        else if (e.getSource()==volver){
+	        else if (e.getSource()==entrar){
 					
-					JFrame frame = new JFrame("Correo");
+					
+	        	    JFrame frame = new JFrame("Correo");
 					frame.setTitle("Menu Principal");
 					frame.setSize(300, 500);
-					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 					frame.getContentPane().add(new Principal());
 					frame.setVisible(true);
 					
 					
 				}
-			}
-	}
-
-
-
-
-
-		
+			
+		}
+}

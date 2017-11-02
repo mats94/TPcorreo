@@ -12,6 +12,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -21,16 +22,30 @@ import javax.swing.JTextField;
 
 public class Principal extends JPanel implements ActionListener{
 	JButton salir;
+	JButton cemp;
+	JButton eemp;
+	JButton memp;
 	public Principal() {
 		initUI();
 	}
 
 		private void initUI() {
-			createButton("Crear Empleado");
-			createButton("Modificar Empleado");
-			createButton("Eliminar Empleado");
 			
-			
+			eemp=new JButton("Eliminar Empleado");
+			eemp.setBounds(300,250,100,30);
+	 		add(eemp);
+	 		eemp.addActionListener(this);
+	 		
+	 		memp=new JButton("Modificar Empleado");
+	 		memp.setBounds(300,250,100,30);
+	 		add(memp);
+	 		memp.addActionListener(this);
+	 		
+			cemp=new JButton("Crear Empleado");
+			cemp.setBounds(300,250,100,30);
+	 		add(cemp);
+	 		cemp.addActionListener(this);
+	 		
 			salir=new JButton("Salir Del Programa");
 		 		salir.setBounds(300,250,100,30);
 		 		add(salir);
@@ -61,6 +76,33 @@ public class Principal extends JPanel implements ActionListener{
 			if (e.getSource()==salir) {
 	            System.exit(0);
 	        }
+			else if (e.getSource()==cemp){
+				
+				JFrame frame = new JFrame("Correo");
+				frame.setTitle("Alta");
+				frame.setSize(300, 500);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.getContentPane().add(new Alta());
+				frame.setVisible(true);
+			}
+			else if (e.getSource()==eemp){
+				
+				JFrame frame = new JFrame("Correo");
+				frame.setTitle("Baja");
+				frame.setSize(300, 500);
+				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				frame.getContentPane().add(new Baja());
+				frame.setVisible(true);
+			}
+			else if (e.getSource()==memp){
+	
+				JFrame frame = new JFrame("Correo");
+				frame.setTitle("Modificar");
+				frame.setSize(300, 500);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.getContentPane().add(new Modificacion());
+				frame.setVisible(true);
+			}
 			
 		}
 }

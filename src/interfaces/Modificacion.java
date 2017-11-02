@@ -12,6 +12,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -21,6 +22,7 @@ import javax.swing.JTextField;
 
 public class Modificacion extends JPanel implements ActionListener{
 	JButton salir;
+	JButton volver;
 	public Modificacion() {
 		initUI();
 	}
@@ -35,7 +37,12 @@ public class Modificacion extends JPanel implements ActionListener{
 			createLabelTextfield("Nuevo origen:", 10);
 			createLabelTextfield("Nuevo destino:", 10);
 			createButton("Enviar formulario");
-			createButton("Volver al menu principal");
+			
+			
+			volver=new JButton("Volver al menu principal");
+			volver.setBounds(300,250,100,30);
+		 	add(volver);
+		 	volver.addActionListener(this);
 			
 			salir=new JButton("Salir Del Programa");
 				salir.setBounds(300,250,100,30);
@@ -84,6 +91,15 @@ public class Modificacion extends JPanel implements ActionListener{
 			if (e.getSource()==salir) {
 	            System.exit(0);
 	        }
+			else if (e.getSource()==volver){
+				
+				JFrame frame = new JFrame("Correo");
+				frame.setTitle("Menu Principal");
+				frame.setSize(300, 500);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.getContentPane().add(new Principal());
+				frame.setVisible(true);
+			}
 			
 		}
 }

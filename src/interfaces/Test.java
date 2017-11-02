@@ -31,46 +31,14 @@ public class Test {
 		menubar.add(menu);
 		
 		
-		//frame.setJMenuBar(createMenu());
-		JFrame frame = new JFrame("Correo");
-		frame.setTitle("Alta");
-		frame.setSize(300, 500);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //para matar tanto grafica como el back(sino te cierra la ventana pero sigue corriendo)
-		frame.getContentPane().add(new Alta());
-		frame.setVisible(true);
-		frame.setJMenuBar(menubar);
+		JFrame frame4 = new JFrame("Correo");
+		frame4.setJMenuBar(menubar);
+		frame4.setTitle("Login");
 		
+		frame4.setSize(300, 500);
+		frame4.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame4.getContentPane().add(new Login());
+		frame4.setVisible(true);
 		
-		
-		JFrame frame3 = new JFrame("Correo");
-		frame3.setJMenuBar(menubar);
-		frame3.setTitle("Menu Principal");
-		
-		frame3.setSize(300, 500);
-		frame3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame3.getContentPane().add(new Principal());
-		frame3.setVisible(true);
-
-		
-		JFrame frame1 = new JFrame("Correo");
-		frame1.setJMenuBar(menubar);
-		frame1.setTitle("Baja");
-		
-		frame1.setSize(300, 500);
-		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame1.getContentPane().add(new Baja());
-		frame1.setVisible(true);
-
-		
-		JFrame frame2 = new JFrame("Correo");
-		frame2.setJMenuBar(menubar);
-		frame2.setTitle("Modificacion");
-		
-		frame2.setSize(300, 500);
-		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame2.getContentPane().add(new Modificacion());
-		frame2.setVisible(true);
-
-
 	}
 }
