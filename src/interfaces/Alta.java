@@ -36,11 +36,11 @@ public class Alta extends JPanel implements ActionListener{
 			createLabelTextfield("Origen :", 10);
 			createButton("Enviar formulario");
 			createButton("Volver al menu principal");
-			
-			salir=new JButton("Salir Del Programa");
+			createButtonExit("Salir Del Programa");
+			/*salir=new JButton("Salir Del Programa");
 			 	salir.setBounds(300,250,100,30);
 			 	add(salir);
-			 	salir.addActionListener(this);
+			 	salir.addActionListener(this); */
 		}
 		private void createLabelTextfield(String campo,int capacidad) {
 			
@@ -67,6 +67,17 @@ public class Alta extends JPanel implements ActionListener{
 			box.add(Box.createHorizontalStrut(10));		
 			add(box);
 		}
+		private void createButtonExit(String button1) {
+
+			Box box = Box.createHorizontalBox();
+			box.add(Box.createHorizontalGlue());
+			JButton boton = new JButton(button1);
+			boton.addActionListener(this);
+			box.add(boton);
+			box.add(Box.createHorizontalStrut(10));		
+			add(box);
+		}
+		
 		
 		private void createButtons(String button1, String button2) {
 
