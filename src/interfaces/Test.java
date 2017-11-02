@@ -31,14 +31,10 @@ public class Test {
 		menubar.add(menu);
 		
 		
-		JFrame frame4 = new JFrame("Correo");
-		frame4.setJMenuBar(menubar);
-		frame4.setTitle("Login");
-		
-		frame4.setSize(300, 500);
-		frame4.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame4.getContentPane().add(new Login());
-		frame4.setVisible(true);
+		//admin admin para logiar
+		Login frame=new Login();
+		frame.setSize(300,500);
+		frame.setVisible(true);
 		
 	}
 }
