@@ -6,7 +6,7 @@ import java.awt.event.*;
  
 class Login extends JFrame implements ActionListener
 {
- JButton entrar,salir;
+ JButton entrar;
  JPanel panel;
  JLabel label1,label2;
  final JTextField  text1,text2;
@@ -33,10 +33,6 @@ class Login extends JFrame implements ActionListener
  
   entrar=new JButton("Entrar");
   panel.add(entrar);
-  
-  salir=new JButton("Salir");
-  panel.add(salir);
-  
   
   entrar.addActionListener(this);
   
