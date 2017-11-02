@@ -86,16 +86,15 @@ public class Principal extends JPanel implements ActionListener{
 				frame.setVisible(true);
 			}
 			else if (e.getSource()==eemp){
-				
 				JFrame frame = new JFrame("Correo");
 				frame.setTitle("Baja");
 				frame.setSize(300, 500);
 				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				frame.getContentPane().add(new Baja());
 				frame.setVisible(true);
+				
 			}
 			else if (e.getSource()==memp){
-	
 				JFrame frame = new JFrame("Correo");
 				frame.setTitle("Modificar");
 				frame.setSize(300, 500);

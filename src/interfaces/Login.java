@@ -50,7 +50,10 @@ class Login extends JFrame implements ActionListener
 		  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		  frame.getContentPane().add(new Principal());
 		  frame.setVisible(true);
-		  this.dispose();
+		  this.dispose();}
+		  else {
+			  JOptionPane.showMessageDialog(this,"Datos incorrectos", 
+					  "Incorrecto",JOptionPane.DEFAULT_OPTION);
+		  }
 	  }
-}
 }
