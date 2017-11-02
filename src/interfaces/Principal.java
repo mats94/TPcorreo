@@ -84,6 +84,7 @@ public class Principal extends JPanel implements ActionListener{
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.getContentPane().add(new Alta());
 				frame.setVisible(true);
+				
 			}
 			else if (e.getSource()==eemp){
 				JFrame frame = new JFrame("Correo");

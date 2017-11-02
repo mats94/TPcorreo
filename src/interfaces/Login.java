@@ -53,7 +53,7 @@ class Login extends JFrame implements ActionListener
 		  this.dispose();}
 		  else {
 			  JOptionPane.showMessageDialog(this,"Datos incorrectos", 
-					  "Incorrecto",JOptionPane.DEFAULT_OPTION);
+					  "Incorrecto",JOptionPane.ERROR_MESSAGE);
 		  }
 	  }
 }
