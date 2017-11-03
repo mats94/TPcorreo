@@ -7,6 +7,7 @@ import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Panel;
+import java.awt.Window;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -19,6 +20,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 public class Principal extends JPanel implements ActionListener{
 	JButton salir;
@@ -77,31 +79,35 @@ public class Principal extends JPanel implements ActionListener{
 	            System.exit(0);
 	        }
 			else if (e.getSource()==cemp){
-				
+				Window w = SwingUtilities.getWindowAncestor(this);
 				JFrame frame = new JFrame("Correo");
 				frame.setTitle("Alta");
 				frame.setSize(300, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.getContentPane().add(new Alta());
 				frame.setVisible(true);
+				w.dispose();
 				
 			}
 			else if (e.getSource()==eemp){
+				Window w = SwingUtilities.getWindowAncestor(this);
 				JFrame frame = new JFrame("Correo");
 				frame.setTitle("Baja");
 				frame.setSize(300, 500);
 				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				frame.getContentPane().add(new Baja());
 				frame.setVisible(true);
-				
+				w.dispose();
 			}
 			else if (e.getSource()==memp){
+				Window w = SwingUtilities.getWindowAncestor(this);
 				JFrame frame = new JFrame("Correo");
 				frame.setTitle("Modificar");
 				frame.setSize(300, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.getContentPane().add(new Modificacion());
 				frame.setVisible(true);
+				w.dispose();
 			}
 			
 		}
