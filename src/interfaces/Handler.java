@@ -12,7 +12,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-public class Test {
+public class Handler {
 	public static void main(String[] args) {
 		
 		
@@ -35,6 +35,13 @@ public class Test {
 		Login frame=new Login();
 		frame.setSize(300,500);
 		frame.setVisible(true);
-		
+	}
+	public static void principal() {
+		JFrame frame = new JFrame("Correo");
+		frame.setTitle("Menu Principal");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		frame.getContentPane().add(new Principal());
+		frame.setSize(300, 500);
+		frame.setVisible(true);
 	}
 }

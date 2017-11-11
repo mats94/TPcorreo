@@ -32,6 +32,8 @@ public class Principal extends JPanel implements ActionListener{
 	}
 
 		private void initUI() {
+			 
+
 			
 			eemp=new JButton("Eliminar Empleado");
 			eemp.setBounds(300,250,100,30);
