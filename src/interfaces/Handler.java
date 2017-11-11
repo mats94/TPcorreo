@@ -27,6 +27,17 @@ public class Handler {
 		frame.setSize(300, 500);
 		frame.setVisible(true);
 	}
+	public static void modificacion() {
+		modificacion2();
+	}
+	private static void modificacion2() {
+		JFrame frame = new JFrame("Correo");
+		frame.setTitle("Modificar");
+		frame.setSize(300, 500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().add(new Modificacion());
+		frame.setVisible(true);
+	}
 	
 	private static JMenuBar menu() {
 		JMenuBar menubar = new JMenuBar();
