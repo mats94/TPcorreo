@@ -19,9 +19,11 @@ public class Handler {
 		principal2();
 	}
 	private static void principal2() {
-		Principal frame = new Principal();
-		//JFrame frame = new JFrame("Correo");
-		//frame.setJMenuBar(menu());
+		JFrame frame = new JFrame("Correo");
+		frame.setJMenuBar(menu());
+		frame.setTitle("Menu Principal");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		frame.getContentPane().add(new Principal());
 		frame.setSize(300, 500);
 		frame.setVisible(true);
 	}
