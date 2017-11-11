@@ -103,12 +103,6 @@ public class Principal extends JPanel implements ActionListener{
 			else if (e.getSource()==memp){
 				Handler.modificacion();
 				/* Window w = SwingUtilities.getWindowAncestor(this);
-				JFrame frame = new JFrame("Correo");
-				frame.setTitle("Modificar");
-				frame.setSize(300, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.getContentPane().add(new Modificacion());
-				frame.setVisible(true);
 				w.dispose(); */
 			}
 			
