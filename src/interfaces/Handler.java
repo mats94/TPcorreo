@@ -1,34 +1,31 @@
 package interfaces;
-import java.awt.Color;
-import interfaces.*;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-
-import javax.swing.ImageIcon;
-import javax.swing.JApplet;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
+
+import interfaces.Login;
 public class Handler {
-	public static void main(String[] args) {
-		
-		//admin admin para logiar
-		Login frame=new Login();
-		frame.setSize(300,500);
-		frame.setVisible(true);
+	public Handler() {
+		loginframe();
+	}
+	
+	private void loginframe() {
+	Login frame = new Login();
+	frame.setSize(300,500);
+	frame.setVisible(true);
 	}
 	public static void principal() {
-		JFrame frame = new JFrame("Correo");
-		frame.setJMenuBar(menu());
-		frame.setTitle("Menu Principal");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		frame.getContentPane().add(new Principal());
+		principal2();
+	}
+	private static void principal2() {
+		Principal frame = new Principal();
+		//JFrame frame = new JFrame("Correo");
+		//frame.setJMenuBar(menu());
 		frame.setSize(300, 500);
 		frame.setVisible(true);
 	}
+	
 	private static JMenuBar menu() {
 		JMenuBar menubar = new JMenuBar();
 		JMenu menu = new JMenu("Menu");
@@ -45,4 +42,5 @@ public class Handler {
 		menubar.add(menu);
 		return menubar;
 	}
+
 }
