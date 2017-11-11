@@ -15,22 +15,6 @@ import javax.swing.JPanel;
 public class Handler {
 	public static void main(String[] args) {
 		
-		
-		JMenuBar menubar = new JMenuBar();
-		JMenu menu = new JMenu("Menu");
-		JMenu submenu = new JMenu("Menu Principal");
-		JMenu submenu2 = new JMenu("Crear Empleado");
-		JMenu submenu3 = new JMenu("Modificar Empleado");
-		JMenu submenu4 = new JMenu("Eliminar Empleado");
-		JMenuItem menuitem = new JMenuItem("menu item 1");
-		submenu.add(menuitem);
-		menu.add(submenu);
-		menu.add(submenu2);
-		menu.add(submenu3);
-		menu.add(submenu4);
-		menubar.add(menu);
-		
-		
 		//admin admin para logiar
 		Login frame=new Login();
 		frame.setSize(300,500);
