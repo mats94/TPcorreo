@@ -27,13 +27,8 @@ public class Principal extends JPanel implements ActionListener{
 	JButton cemp;
 	JButton eemp;
 	JButton memp;
-	public Principal() {
-		initUI();
-	}
-
-		private void initUI() {
-			 
-			
+	public Principal(){
+	
 			eemp=new JButton("Eliminar Empleado");
 			eemp.setBounds(300,250,100,30);
 	 		add(eemp);
@@ -53,6 +48,7 @@ public class Principal extends JPanel implements ActionListener{
 		 		salir.setBounds(300,250,100,30);
 		 		add(salir);
 		 		salir.addActionListener(this);
+		 		
 		}
 				
 		private void createButtons(String button1, String button2) {
@@ -101,7 +97,6 @@ public class Principal extends JPanel implements ActionListener{
 				w.dispose();
 			}
 			else if (e.getSource()==memp){
-				Handler.modificacion();
 				/* Window w = SwingUtilities.getWindowAncestor(this);
 				w.dispose(); */
 			}

@@ -1,13 +1,19 @@
 package entidades;
 
+import paquetes.Carta;
+
 public class Cliente {
 
 	private String nombre;
 	private String apellido;
 	private String direccion;
 	private String telefono;
+	private Carta carta;
 
 
+	public Carta getCarta() {
+		return carta;
+	}
 	public String getDireccion() {
 		return direccion;
 	}

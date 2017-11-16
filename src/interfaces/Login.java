@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
  
-class Login extends JFrame implements ActionListener
+class Login extends JPanel implements ActionListener
 {
  JButton entrar;
  JPanel panel;
@@ -44,7 +44,8 @@ class Login extends JFrame implements ActionListener
 	  if (value1.equals("admin") && value2.equals("admin")) {
 		  JOptionPane.showMessageDialog(this,"Logiado exitosamente", 
 				  "Correcto",JOptionPane.DEFAULT_OPTION);
-		  Handler.principal();
+		  
+		 Handler.principalframe();
 		 /* JFrame frame = new JFrame("Correo");
 		  frame.setTitle("Menu Principal");
 		  frame.setSize(300, 500);

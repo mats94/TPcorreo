@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import entidades.Cliente;
+
 
 public class DataManager {
 
@@ -34,8 +36,8 @@ public class DataManager {
 		
 
 	}
-	public void crearCliente(String nombre, String apellido, String direccion, String telefono) {
-		String sql = "INSERT INTO clientes (nombre, apellido, direccion, telefono) VALUES ('" + nombre + "', '" + apellido + "', '" + direccion + "', '" + telefono + "')";
+	public void crearCliente(Cliente cliente) {
+		String sql = "INSERT INTO clientes (nombre, apellido, direccion, telefono) VALUES ('" + cliente.getNombre() + "', '" + cliente.getApellido() + "', '" + cliente.getDireccion() + "', '" + cliente.getTelefono() + "')";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();

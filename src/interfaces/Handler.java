@@ -6,8 +6,10 @@ import javax.swing.JMenuItem;
 
 import interfaces.Login;
 public class Handler {
+	private Ventana frame;
 	public Handler() {
-		loginframe();
+		frame = new ventana(this);
+		//loginframe();
 	}
 	
 	private void loginframe() {
@@ -15,10 +17,8 @@ public class Handler {
 	frame.setSize(300,500);
 	frame.setVisible(true);
 	}
-	public static void principal() {
-		principal2();
-	}
-	private static void principal2() {
+	
+	public void principalframe() {
 		JFrame frame = new JFrame("Correo");
 		frame.setJMenuBar(menu());
 		frame.setTitle("Menu Principal");
@@ -26,11 +26,12 @@ public class Handler {
 		frame.getContentPane().add(new Principal());
 		frame.setSize(300, 500);
 		frame.setVisible(true);
+		
 	}
-	public static void modificacion() {
+	public void modificacion() {
 		modificacion2();
 	}
-	private static void modificacion2() {
+	private void modificacion2() {
 		JFrame frame = new JFrame("Correo");
 		frame.setTitle("Modificar");
 		frame.setSize(300, 500);
