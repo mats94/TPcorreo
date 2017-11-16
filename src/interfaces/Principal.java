@@ -33,7 +33,6 @@ public class Principal extends JPanel implements ActionListener{
 
 		private void initUI() {
 			 
-
 			
 			eemp=new JButton("Eliminar Empleado");
 			eemp.setBounds(300,250,100,30);
@@ -102,14 +101,9 @@ public class Principal extends JPanel implements ActionListener{
 				w.dispose();
 			}
 			else if (e.getSource()==memp){
-				Window w = SwingUtilities.getWindowAncestor(this);
-				JFrame frame = new JFrame("Correo");
-				frame.setTitle("Modificar");
-				frame.setSize(300, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.getContentPane().add(new Modificacion());
-				frame.setVisible(true);
-				w.dispose();
+				Handler.modificacion();
+				/* Window w = SwingUtilities.getWindowAncestor(this);
+				w.dispose(); */
 			}
 			
 		}
