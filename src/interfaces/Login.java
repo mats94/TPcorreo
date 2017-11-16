@@ -12,7 +12,6 @@ class Login extends JFrame implements ActionListener
  final JTextField  text1,text2;
   Login()
   {
-
   panel=new JPanel();
   add(panel,BorderLayout.CENTER);
   setTitle("LOGIN");
@@ -37,6 +36,7 @@ class Login extends JFrame implements ActionListener
   entrar.addActionListener(this);
   
   }
+
   public void actionPerformed(ActionEvent ae){
 	  String value1=text1.getText();
 	  String value2=text2.getText();
