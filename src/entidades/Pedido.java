@@ -2,7 +2,7 @@ package entidades;
 
 import paquetes.Carta;
 
-public class Cliente {
+public class Pedido {
 
 	private String nombre;
 	private String apellido;
