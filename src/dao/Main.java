@@ -15,7 +15,7 @@ public class Main {
 		String direccion = "calle falsa";
 		String telefono = "12345";
 		
-		dm.crearUsuario(nombre, apellido, direccion, telefono);
+		dm.crearCliente(nombre, apellido, direccion, telefono);
 		
 	/*	System.out.println("Ahora voy a mostrar el usuario recien cargado");
 		String unUser = Dentre.texto("ingrese el username del usuario recien creado");

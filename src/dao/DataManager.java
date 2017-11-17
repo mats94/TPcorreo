@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import entidades.Cliente;
+
 
 public class DataManager {
 
@@ -11,7 +13,7 @@ public class DataManager {
 
 		Connection c = DBManager.connect();
 		
-		String sql = "CREATE TABLE usuarios ( id INTEGER IDENTITY, nombre VARCHAR(256), apellido VARCHAR(256), direccion VARCHAR(256), telefono VARCHAR(256))";
+		String sql = "CREATE TABLE clientes ( id INTEGER IDENTITY, nombre VARCHAR(256), apellido VARCHAR(256), direccion VARCHAR(256), telefono VARCHAR(256))";
 		
 		try {
 			Statement s = c.createStatement();
@@ -34,8 +36,8 @@ public class DataManager {
 		
 
 	}
-	public void crearUsuario(String nombre, String apellido, String direccion, String telefono) {
-		String sql = "INSERT INTO usuarios (nombre, apellido, direccion, telefono) VALUES ('" + nombre + "', '" + apellido + "', '" + direccion + "', '" + telefono + "')";
+	public void crearCliente(Cliente cliente) {
+		String sql = "INSERT INTO clientes (nombre, apellido, direccion, telefono) VALUES ('" + cliente.getNombre() + "', '" + cliente.getApellido() + "', '" + cliente.getDireccion() + "', '" + cliente.getTelefono() + "')";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
@@ -57,8 +59,8 @@ public class DataManager {
 		}
 	}
 	
-	public void borraUsuario(String username) {
-		String sql = "DELETE FROM usuarios WHERE user = '" + username + "'";
+	public void borraCliente(String nombre) {
+		String sql = "DELETE FROM clientes WHERE user = '" + nombre + "'";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
@@ -80,8 +82,8 @@ public class DataManager {
 		}
 	}
 	
-	public void actualizaUsuario(String user, String email, String pass) {
-		String sql = "UPDATE usuarios set email = '" + email + "', pass = '" + user + "' WHERE user = '" + user + "'";
+	public void actualizaCliente(String user, String email, String pass) {
+		String sql = "UPDATE clientes set email = '" + email + "', pass = '" + user + "' WHERE user = '" + user + "'";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
@@ -105,14 +107,14 @@ public class DataManager {
 	}
 	
 	public void muestraUsuario(String username) {
-		String sql = "SELECT * FROM usuarios WHERE user = '" + username + "'";
+		String sql = "SELECT * FROM clientes WHERE user = '" + username + "'";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			
 			if(rs.next()) {
-				System.out.println("Usuario:");
+				System.out.println("Clientes:");
 				System.out.print("\t" + rs.getInt("id"));
 				System.out.print("\t" + rs.getString("user"));
 				System.out.print("\t" + rs.getString("email"));
@@ -138,14 +140,14 @@ public class DataManager {
 	
 	
 	public void muestraTodosLosusuarios() {
-		String sql = "SELECT * FROM usuarios";
+		String sql = "SELECT * FROM clientes";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			
 			while(rs.next()) {
-				System.out.println("Usuario:");
+				System.out.println("Clientes:");
 				System.out.print("\t" + rs.getInt("id"));
 				System.out.print("\t" + rs.getString("user"));
 				System.out.print("\t" + rs.getString("email"));
