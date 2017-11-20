@@ -8,12 +8,12 @@ import interfaces.Login;
 public class Handler {
 	private Ventana frame;
 	public Handler() {
-		frame = new ventana(this);
-		//loginframe();
+		//frame = new ventana(this);
+		loginframe();
 	}
 	
 	private void loginframe() {
-	Login frame = new Login();
+	Login frame = new Login(this);
 	frame.setSize(300,500);
 	frame.setVisible(true);
 	}
