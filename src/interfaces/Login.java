@@ -55,10 +55,13 @@ class Login extends JFrame implements ActionListener
 		  }
 	  }
   public void cambio(JPanel nuevopanel) {
-	  panel.setVisible(false);
+	  //panel.setVisible(false);
+	  panel.removeAll();
 	  panel = nuevopanel;
 	  panel.repaint();
 	  add(panel);
+	  panel.revalidate();
 	  panel.setVisible(true);
+	  
   }
 }
