@@ -44,19 +44,21 @@ class Login extends JFrame implements ActionListener
 	  String value2=text2.getText();
 	  
 	  if (value1.equals("admin") && value2.equals("admin")) {
-		  JOptionPane.showMessageDialog(this,"Logiado exitosamente", 
-				  "Correcto",JOptionPane.DEFAULT_OPTION);
+		  //JOptionPane.showMessageDialog(this,"Logiado exitosamente", 
+				 // "Correcto",JOptionPane.DEFAULT_OPTION);
 		  myhandler.principalframe();
-		 /* JFrame frame = new JFrame("Correo");
-		  frame.setTitle("Menu Principal");
-		  frame.setSize(300, 500);
-		  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		  frame.getContentPane().add(new Principal());
-		  frame.setVisible(true);*/
-		  this.dispose();}
+		  //this.dispose();
+	  }
 		  else {
 			  JOptionPane.showMessageDialog(this,"Datos incorrectos", 
 					  "Incorrecto",JOptionPane.ERROR_MESSAGE);
 		  }
 	  }
+  public void cambio(JPanel nuevopanel) {
+	  panel.setVisible(false);
+	  panel = nuevopanel;
+	  panel.repaint();
+	  add(panel);
+	  panel.setVisible(true);
+  }
 }

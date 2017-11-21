@@ -27,8 +27,9 @@ public class Principal extends JPanel implements ActionListener{
 	JButton cemp;
 	JButton eemp;
 	JButton memp;
-	public Principal(){
-	
+	Handler myhandler;
+	public Principal(Handler handler){
+			myhandler = handler;
 			eemp=new JButton("Eliminar Empleado");
 			eemp.setBounds(300,250,100,30);
 	 		add(eemp);
@@ -45,9 +46,9 @@ public class Principal extends JPanel implements ActionListener{
 	 		cemp.addActionListener(this);
 	 		
 			salir=new JButton("Salir Del Programa");
-		 		salir.setBounds(300,250,100,30);
-		 		add(salir);
-		 		salir.addActionListener(this);
+		 	salir.setBounds(300,250,100,30);
+		 	add(salir);
+		 	salir.addActionListener(this);
 		 		
 		}
 				
@@ -87,14 +88,7 @@ public class Principal extends JPanel implements ActionListener{
 				
 			}
 			else if (e.getSource()==eemp){
-				Window w = SwingUtilities.getWindowAncestor(this);
-				JFrame frame = new JFrame("Correo");
-				frame.setTitle("Baja");
-				frame.setSize(300, 500);
-				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				frame.getContentPane().add(new Baja());
-				frame.setVisible(true);
-				w.dispose();
+				myhandler.baja();
 			}
 			else if (e.getSource()==memp){
 				/* Window w = SwingUtilities.getWindowAncestor(this);

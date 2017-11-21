@@ -3,35 +3,35 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 import interfaces.Login;
 public class Handler {
-	private Ventana frame;
+	private Login jframe;
 	public Handler() {
-		//frame = new ventana(this);
 		loginframe();
 	}
 	
 	private void loginframe() {
-	Login frame = new Login(this);
-	frame.setSize(300,500);
-	frame.setVisible(true);
+	jframe = new Login(this);
+	jframe.setSize(300,500);
+	jframe.setVisible(true);
 	}
 	
 	public void principalframe() {
-		JFrame frame = new JFrame("Correo");
-		frame.setJMenuBar(menu());
-		frame.setTitle("Menu Principal");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		frame.getContentPane().add(new Principal());
-		frame.setSize(300, 500);
-		frame.setVisible(true);
+		//JFrame frame = new JFrame("Correo");
+		jframe.setTitle("Menu Principal");
+		jframe.cambio(new Principal(this));
+		
+		
 		
 	}
-	public void modificacion() {
-		modificacion2();
+	public void baja() {
+		jframe.setTitle("Baja");
+		jframe.cambio(new Baja(this));
 	}
-	private void modificacion2() {
+
+	public void modificacion2() {
 		JFrame frame = new JFrame("Correo");
 		frame.setTitle("Modificar");
 		frame.setSize(300, 500);

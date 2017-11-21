@@ -26,11 +26,9 @@ import java.awt.event.ActionListener;
 public class Baja extends JPanel implements ActionListener{
 	JButton salir;
 	JButton volver;
-	public Baja() {
-		initUI();
-	}
-
-		private void initUI() {
+	Handler myhandler;
+	public Baja(Handler handler) {
+			myhandler = handler;
 			createLabelTextfield("Nombre del cliente:", 10);
 			createLabelTextfield("Documento:", 10);
 			createButton("Buscar");
@@ -96,7 +94,7 @@ public class Baja extends JPanel implements ActionListener{
 					frame.setTitle("Menu Principal");
 					frame.setSize(300, 500);
 					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					frame.getContentPane().add(new Principal());
+					frame.getContentPane().add(new Principal(myhandler));
 					frame.setVisible(true);
 					
 					
