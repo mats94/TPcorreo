@@ -14,28 +14,28 @@ class Login extends JFrame implements ActionListener
   Login(Handler handler)
   {
 	  myhandler = handler;
-  panel=new JPanel();
-  add(panel,BorderLayout.CENTER);
-  setTitle("LOGIN");
+	  panel=new JPanel();
+	  add(panel,BorderLayout.CENTER);
+	  setTitle("LOGIN");
   
-  label1 = new JLabel();
-  label1.setText("Usuario:");
-  panel.add(label1);
+	  label1 = new JLabel();
+	  label1.setText("Usuario:");
+	  panel.add(label1);
   
-  text1 = new JTextField(15);
-  panel.add(text1);
+	  text1 = new JTextField(15);
+	  panel.add(text1);
   
-  label2 = new JLabel();
-  label2.setText("Password:");
-  panel.add(label2);
+	  label2 = new JLabel();
+	  label2.setText("Password:");
+	  panel.add(label2);
   
-  text2 = new JPasswordField(15);
-  panel.add(text2);
+	  text2 = new JPasswordField(15);
+	  panel.add(text2);
  
-  entrar=new JButton("Entrar");
-  panel.add(entrar);
+	  entrar=new JButton("Entrar");
+	  panel.add(entrar);
   
-  entrar.addActionListener(this);
+	  entrar.addActionListener(this);
   
   }
 
@@ -54,8 +54,8 @@ class Login extends JFrame implements ActionListener
 					  "Incorrecto",JOptionPane.ERROR_MESSAGE);
 		  }
 	  }
-  public void cambio(JPanel nuevopanel) {
-	  //panel.setVisible(false);
+  	public void cambio(JPanel nuevopanel) {
+	  panel.setVisible(false);
 	  panel.removeAll();
 	  panel = nuevopanel;
 	  panel.repaint();

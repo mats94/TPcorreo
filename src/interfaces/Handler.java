@@ -31,16 +31,17 @@ public class Handler {
 		jframe.cambio(new Baja(this));
 	}
 
-	public void modificacion2() {
-		JFrame frame = new JFrame("Correo");
-		frame.setTitle("Modificar");
-		frame.setSize(300, 500);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().add(new Modificacion());
-		frame.setVisible(true);
+	public void modificacion() {
+		jframe.setTitle("Modificacion");
+		jframe.cambio(new Modificacion(this));
 	}
 	
-	private static JMenuBar menu() {
+	public void alta() {
+		jframe.setTitle("Alta");
+		jframe.cambio(new Alta(this));
+	}
+	
+	/*private static JMenuBar menu() {
 		JMenuBar menubar = new JMenuBar();
 		JMenu menu = new JMenu("Menu");
 		JMenu submenu = new JMenu("Menu Principal");
@@ -55,6 +56,6 @@ public class Handler {
 		menu.add(submenu4);
 		menubar.add(menu);
 		return menubar;
-	}
+	}*/
 
 }

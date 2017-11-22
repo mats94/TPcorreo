@@ -23,13 +23,12 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 public class Alta extends JPanel implements ActionListener{
-	JButton salir;
-	public Alta() {
-		initUI();
-	}
-
-		private void initUI() {
-			// setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+	private JButton salir;
+	private JButton volver;
+	private Handler myhandler;
+	public Alta(Handler handler) {
+		
+			myhandler = handler;
 			createLabelTextfield("Nombre :", 10);
 			createLabelTextfield("Apellido :", 10);
 			createLabelTextfield("Peso :", 10);
@@ -38,12 +37,18 @@ public class Alta extends JPanel implements ActionListener{
 			createLabelTextfield("Destino :", 10);
 			createLabelTextfield("Origen :", 10);
 			createButton("Enviar formulario");
-			createButton("Volver al menu principal");
-			createButtonExit("Salir Del Programa");
-			/*salir=new JButton("Salir Del Programa");
-			 	salir.setBounds(300,250,100,30);
-			 	add(salir);
-			 	salir.addActionListener(this); */
+
+			volver=new JButton("Volver al menu principal");
+			volver.setBounds(300,250,100,30);
+		 	add(volver);
+		 	volver.addActionListener(this);
+			
+			salir=new JButton("Salir Del Programa");
+				salir.setBounds(300,250,100,30);
+				add(salir);
+				salir.addActionListener(this);
+			
+			
 		}
 		private void createLabelTextfield(String campo,int capacidad) {
 			
@@ -53,7 +58,6 @@ public class Alta extends JPanel implements ActionListener{
 			box.add(Box.createHorizontalStrut(10));
 			box.add(wrapTextfield(new JTextField(capacidad)));
 			box.add(Box.createHorizontalStrut(20));
-			setBackground(new Color(0, 200, 0));
 			this.add(box);
 		}
 		private Component wrapTextfield(JTextField textField) {
@@ -96,16 +100,9 @@ public class Alta extends JPanel implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource()==salir) {
 	            System.exit(0);
-	        }
-			else {
-				JFrame frame = new JFrame("Correo");
-				Window w = SwingUtilities.getWindowAncestor(this);
-				  frame.setTitle("Menu Principal");
-				  frame.setSize(300, 500);
-				  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-				  frame.getContentPane().add(new Principal());
-				  frame.setVisible(true);
-				  w.dispose();
+	        }		
+			else if (e.getSource()==volver){	
+		        myhandler.principalframe();
 			}
 			
 		}

@@ -23,11 +23,10 @@ import javax.swing.JTextField;
 public class Modificacion extends JPanel implements ActionListener{
 	JButton salir;
 	JButton volver;
-	public Modificacion() {
-		initUI();
-	}
-
-		private void initUI() {
+	Handler myhandler;
+	public Modificacion(Handler handler) {
+	
+			myhandler = handler;
 			createLabelTextfield("Nombre del cliente:", 10);
 			createLabelTextfield("Documento:", 10);
 			createButton("Buscar");
@@ -50,6 +49,7 @@ public class Modificacion extends JPanel implements ActionListener{
 				salir.addActionListener(this);
 			
 		}
+	    
 		private void createLabelTextfield(String campo,int capacidad) {
 			Box box = Box.createHorizontalBox();
 			box.add(Box.createHorizontalStrut(30));
@@ -57,7 +57,6 @@ public class Modificacion extends JPanel implements ActionListener{
 			box.add(Box.createHorizontalStrut(10));
 			box.add(wrapTextfield(new JTextField(capacidad)));
 			box.add(Box.createHorizontalStrut(20));
-			setBackground(new Color(0, 200, 0));
 			this.add(box);
 
 		}
@@ -92,13 +91,7 @@ public class Modificacion extends JPanel implements ActionListener{
 	            System.exit(0);
 	        }
 			else if (e.getSource()==volver){
-				
-				JFrame frame = new JFrame("Correo");
-				frame.setTitle("Menu Principal");
-				frame.setSize(300, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.getContentPane().add(new Principal());
-				frame.setVisible(true);
+				myhandler.principalframe();
 			}
 			
 		}

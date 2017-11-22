@@ -24,10 +24,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Baja extends JPanel implements ActionListener{
-	JButton salir;
-	JButton volver;
-	Handler myhandler;
+	private JButton salir;
+	private JButton volver;
+	private Handler myhandler;
 	public Baja(Handler handler) {
+		
 			myhandler = handler;
 			createLabelTextfield("Nombre del cliente:", 10);
 			createLabelTextfield("Documento:", 10);
@@ -55,7 +56,7 @@ public class Baja extends JPanel implements ActionListener{
 			box.add(Box.createHorizontalStrut(10));
 			box.add(wrapTextfield(new JTextField(capacidad)));
 			box.add(Box.createHorizontalStrut(20));
-			setBackground(new Color(0, 200, 0));
+			
 			this.add(box);
 		}
 		private Component wrapTextfield(JTextField textField) {
@@ -88,22 +89,8 @@ public class Baja extends JPanel implements ActionListener{
 			if (e.getSource()==salir) {
 	            System.exit(0);
 			}
-	        else if (e.getSource()==volver){
-					
-					JFrame frame = new JFrame("Correo");
-					frame.setTitle("Menu Principal");
-					frame.setSize(300, 500);
-					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					frame.getContentPane().add(new Principal(myhandler));
-					frame.setVisible(true);
-					
-					
+	        else if (e.getSource()==volver){	
+	        	myhandler.principalframe();
 				}
 			}
 	}
-
-
-
-
-
-		
