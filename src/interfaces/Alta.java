@@ -25,32 +25,41 @@ import javax.swing.SwingUtilities;
 public class Alta extends JPanel implements ActionListener{
 	private JButton salir;
 	private JButton volver;
+	private JButton enviar;
 	private Handler myhandler;
 	public Alta(Handler handler) {
 		
 			myhandler = handler;
-			createLabelTextfield("Nombre :", 10);
-			createLabelTextfield("Apellido :", 10);
-			createLabelTextfield("Peso :", 10);
-			createLabelTextfield("Tipo de envio :", 10);
-			createLabelTextfield("Modalidad de envio :", 10);
-			createLabelTextfield("Destino :", 10);
-			createLabelTextfield("Origen :", 10);
-			createButton("Enviar formulario");
+			
+			Box box = Box.createVerticalBox();
+			
+			box.add(createLabelTextfield("Nombre :", 10));
+			box.add(createLabelTextfield("Apellido :", 10));
+			box.add(createLabelTextfield("Peso :", 10));
+			box.add(createLabelTextfield("Tipo de envio :", 10));
+			box.add(createLabelTextfield("Modalidad de envio :", 10));
+			box.add(createLabelTextfield("Destino :", 10));
+			box.add(createLabelTextfield("Origen :", 10));
+			
+			enviar=new JButton("Enviar formulario");
+			enviar.setBounds(300,250,100,30);
+		 	box.add(enviar);
+		 	enviar.addActionListener(this);
 
 			volver=new JButton("Volver al menu principal");
 			volver.setBounds(300,250,100,30);
-		 	add(volver);
+		 	box.add(volver);
 		 	volver.addActionListener(this);
 			
 			salir=new JButton("Salir Del Programa");
-				salir.setBounds(300,250,100,30);
-				add(salir);
-				salir.addActionListener(this);
+			salir.setBounds(300,250,100,30);
+			box.add(salir);
+			salir.addActionListener(this);
 			
+			add(box);
 			
 		}
-		private void createLabelTextfield(String campo,int capacidad) {
+		private Box createLabelTextfield(String campo,int capacidad) {
 			
 			Box box = Box.createHorizontalBox();
 			box.add(Box.createHorizontalStrut(30));
@@ -58,7 +67,7 @@ public class Alta extends JPanel implements ActionListener{
 			box.add(Box.createHorizontalStrut(10));
 			box.add(wrapTextfield(new JTextField(capacidad)));
 			box.add(Box.createHorizontalStrut(20));
-			this.add(box);
+			return box;
 		}
 		private Component wrapTextfield(JTextField textField) {
 			JPanel aux = new JPanel();

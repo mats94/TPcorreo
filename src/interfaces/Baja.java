@@ -26,29 +26,43 @@ import java.awt.event.ActionListener;
 public class Baja extends JPanel implements ActionListener{
 	private JButton salir;
 	private JButton volver;
+	private JButton enviar;
 	private Handler myhandler;
 	public Baja(Handler handler) {
 		
 			myhandler = handler;
-			createLabelTextfield("Nombre del cliente:", 10);
-			createLabelTextfield("Documento:", 10);
-			createButton("Buscar");
-			createLabelTextfield("Motivo de la baja:", 10);
-			createButton("Enviar formulario");
+			Box box = Box.createVerticalBox();
 			
+			box.add(createLabelTextfield("Nombre del cliente:", 10));
 			
+			box.add(Box.createVerticalStrut(10));
+			
+			box.add(createLabelTextfield("Documento:", 10));
+			
+			box.add(Box.createVerticalStrut(10));
+						
+			enviar=new JButton("Enviar formulario");
+			enviar.setBounds(300,250,100,30);
+		 	box.add(enviar);
+		 	enviar.addActionListener(this);
+			
+			box.add(Box.createVerticalStrut(20));
+							
 			volver=new JButton("Volver al menu principal");
 			volver.setBounds(300,250,100,30);
-		 	add(volver);
+		 	box.add(volver);
 		 	volver.addActionListener(this);
 			
+		 	box.add(Box.createVerticalStrut(30));
+		 	
 			salir=new JButton("Salir Del Programa");
-				salir.setBounds(300,250,100,30);
-				add(salir);
-				salir.addActionListener(this);
-			
+			salir.setBounds(300,250,100,30);
+			box.add(salir);
+			salir.addActionListener(this);
+				
+			add(box);
 		}
-		private void createLabelTextfield(String campo,int capacidad) {
+		private Box createLabelTextfield(String campo,int capacidad) {
 			
 			Box box = Box.createHorizontalBox();
 			box.add(Box.createHorizontalStrut(30));
@@ -57,32 +71,21 @@ public class Baja extends JPanel implements ActionListener{
 			box.add(wrapTextfield(new JTextField(capacidad)));
 			box.add(Box.createHorizontalStrut(20));
 			
-			this.add(box);
+			return box;
 		}
 		private Component wrapTextfield(JTextField textField) {
 			JPanel aux = new JPanel();
 			aux.add(textField);
 			return aux;
 		}
-		
-		private void createButtons(String button1, String button2) {
+				
+		private Box createButton(String button1) {
 
+			
 			Box box = Box.createHorizontalBox();
-			box.add(Box.createHorizontalGlue());
 			box.add(new JButton(button1));
-			box.add(Box.createHorizontalStrut(10));
-			box.add(new JButton(button2));
-			box.add(Box.createHorizontalStrut(10));		
-			add(box);
-		}
-		
-		private void createButton(String button1) {
-
-			Box box = Box.createHorizontalBox();
-			box.add(Box.createHorizontalGlue());
-			box.add(new JButton(button1));
-			box.add(Box.createHorizontalStrut(10));		
-			add(box);
+			box.add(Box.createVerticalStrut(30));
+			return box;
 		}
 		
 		public void actionPerformed(ActionEvent e) {

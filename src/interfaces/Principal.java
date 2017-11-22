@@ -30,33 +30,43 @@ public class Principal extends JPanel implements ActionListener{
 	Handler myhandler;
 	public Principal(Handler handler){
 		
+			Box box = Box.createVerticalBox();
+
+			
 			myhandler = handler;
 			eemp=new JButton("Eliminar Empleado");
 			eemp.setBounds(300,250,100,30);
-	 		add(eemp);
+	 		box.add(eemp);
 	 		eemp.addActionListener(this);
 	 		
+	 		box.add(Box.createVerticalStrut(10));
+
 	 		memp=new JButton("Modificar Empleado");
 	 		memp.setBounds(300,250,100,30);
-	 		add(memp);
+	 		box.add(memp);
 	 		memp.addActionListener(this);
 	 		
+	 		box.add(Box.createVerticalStrut(10));
+	 		
+
 			cemp=new JButton("Crear Empleado");
 			cemp.setBounds(300,250,100,30);
-	 		add(cemp);
+	 		box.add(cemp);
 	 		cemp.addActionListener(this);
+	 		
+	 		box.add(Box.createVerticalStrut(30));
 	 		
 			salir=new JButton("Salir Del Programa");
 		 	salir.setBounds(300,250,100,30);
-		 	add(salir);
+		 	box.add(salir);
 		 	salir.addActionListener(this);
-		 	
-		 		
+		
+		 	add(box);
 		}
 				
 		private void createButtons(String button1, String button2) {
 
-			Box box = Box.createHorizontalBox();
+			Box box = Box.createVerticalBox();
 			box.add(Box.createHorizontalGlue());
 			box.add(new JButton(button1));
 			box.add(Box.createHorizontalStrut(10));
