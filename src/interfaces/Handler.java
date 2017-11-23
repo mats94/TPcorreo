@@ -23,11 +23,9 @@ public class Handler {
 	public void principalframe() {
 		//JFrame frame = new JFrame("Correo");
 		jframe.setTitle("Menu Principal");
-		jframe.cambio(new Principal(this));
-		
-		
-		
+		jframe.cambio(new Principal(this));			
 	}
+	
 	public void baja() {
 		jframe.setTitle("Baja");
 		jframe.cambio(new Baja(this));
