@@ -35,8 +35,8 @@ public class PedidoBO {
 		actualizaPedido(u);
 	}
 	
-	public Pedido muestraPedido(String user) {
-		return muestraPedido(user);
+	public void muestraPedido(Pedido p, Modificacion m) {
+		myhandler.mostrarMOD(p, m);
 	}
 	
 	public void muestraTodosLosPedido() {
@@ -47,5 +47,8 @@ public class PedidoBO {
 		// pasar msj al handler para que el despues lo muestre en pantalla
 		myhandler.mostrarmsj(msj);
 		
+	}
+	public void buscarinfo(String dato,Modificacion m) {
+		dao.muestraPedido(dato,m);
 	}
 }

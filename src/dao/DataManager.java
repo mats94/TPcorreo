@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import entidades.Pedido;
+import interfaces.Modificacion;
 import interfaces.PedidoBO;
 
 
@@ -27,7 +28,7 @@ public class DataManager {
 			try {
 				c.rollback();
 				e.printStackTrace();
-				bo.error("error al crear la DB");
+				bo.error("Ya existe la DB");
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
@@ -115,8 +116,8 @@ public class DataManager {
 
 	}
 	
-	public void muestraPedido(int id) {
-		String sql = "SELECT * FROM pedidos WHERE user = '" + id + "'";
+	public void muestraPedido(String dir, Modificacion m) {
+		String sql = "SELECT * FROM pedidos WHERE direcciondestino = '" + dir + "'";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
@@ -125,11 +126,18 @@ public class DataManager {
 			if(rs.next()) {
 				System.out.println("Pedido:");
 				System.out.print("\t" + rs.getInt("id"));
-				System.out.print("\t" + rs.getString("Nombre"));
-				System.out.print("\t" + rs.getString("Apellido"));
-				System.out.print("\t" + rs.getString("Direccion"));
-				System.out.print("\t" + rs.getString("Telefono"));
+				System.out.print("\t" + rs.getString("nombre"));
+				System.out.print("\t" + rs.getString("apellido"));
+				System.out.print("\t" + rs.getString("direccion"));
+				System.out.print("\t" + rs.getString("telefono"));
 				System.out.println();
+				Pedido pedido = new Pedido();
+				pedido.setNombre(rs.getString("Nombre"));
+				pedido.setApellido(rs.getString("Apellido"));
+				pedido.setDireccion(rs.getString("direccion"));
+				pedido.setDestino(rs.getString("direcciondestino"));
+				pedido.setEstado("estadoenvio");
+				bo.muestraPedido(pedido ,m);
 			}
 			
 		} catch (SQLException e) {

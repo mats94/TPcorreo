@@ -103,7 +103,7 @@ public class Modificacion extends JPanel implements ActionListener{
 	            System.exit(0);
 	        }
 			else if (e.getSource()==verif) {
-				
+				myhandler.buscarinfo(this.direccion.getText(),this);
 			}
 			else if (e.getSource()==volver){
 				myhandler.principalframe();
@@ -141,5 +141,13 @@ public class Modificacion extends JPanel implements ActionListener{
 			    
 		        myhandler.mandardatos(u);
 			}
+		}
+		public void mostrar(Pedido p) {
+			apellido.setText(p.getApellido());
+			nombre.setText(p.getNombre());
+			telefono.setText(p.getTelefono());
+			direccion.setText(p.getDireccion());
+			estado.setText(p.getEstado());
+			destino.setText(p.getDestino());
 		}
 }

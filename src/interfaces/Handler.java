@@ -49,8 +49,11 @@ public class Handler {
 	public void mandardatos(Pedido u) {
 		bo.crearPedido(u);
 	}
-	public void buscarinfo(String dato) {
-		bo.muestraPedido(dato);
+	public void buscarinfo(String dato,Modificacion m) {
+		bo.buscarinfo(dato,m);
+	}
+	public void mostrarMOD(Pedido p, Modificacion m){
+		m.mostrar(p);
 	}
 	
 	/*private static JMenuBar menu() {
