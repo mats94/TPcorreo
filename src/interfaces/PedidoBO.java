@@ -14,12 +14,7 @@ public class PedidoBO {
 	}
 	
 	public void crearPedido(Pedido u) {
-		if(u.getApellido() != null && u.getNombre() != null && u.getDireccion() != null && u.getTelefono() != null && u.getCarta().getDireccionentrega() != null) {
 			dao.crearPedido(u);
-		}
-		else {
-			myhandler.mostrarmsj("Datos incorrectos");
-		}
 	}
 	
 	public void insertarPedido(Pedido u) {

@@ -43,7 +43,7 @@ public class DataManager {
 
 	}
 	public void crearPedido(Pedido p) {
-		String sql = "INSERT INTO pedidos (nombre, apellido, direccion, telefono, direcciondestino, estadoenvio) VALUES ('" + p.getNombre() + "', '" + p.getApellido() + "', '" + p.getDireccion() + "', '" + p.getTelefono() + "', '" + p.getCarta().getDireccionentrega() + "', '" + p.getCarta().getEstadoenvio() + "')";
+		String sql = "INSERT INTO pedidos (nombre, apellido, direccion, telefono, direcciondestino, estadoenvio) VALUES ('" + p.getNombre() + "', '" + p.getApellido() + "', '" + p.getDireccion() + "', '" + p.getTelefono() + "', '" + p.getDireccion() + "', '" + p.getEstado() + "')";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
