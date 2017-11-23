@@ -20,6 +20,7 @@ public class Alta extends JPanel implements ActionListener{
 	private JTextField direccion;
 	private JTextField estado;
 	private JTextField destino;
+	
 	public Alta(Handler handler) {
 		
 			myhandler = handler;
