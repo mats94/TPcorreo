@@ -49,6 +49,9 @@ public class Handler {
 	public void mandardatos(Pedido u) {
 		bo.crearPedido(u);
 	}
+	public void buscarinfo(String dato) {
+		bo.muestraPedido(dato);
+	}
 	
 	/*private static JMenuBar menu() {
 		JMenuBar menubar = new JMenuBar();

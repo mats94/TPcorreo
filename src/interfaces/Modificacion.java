@@ -102,6 +102,9 @@ public class Modificacion extends JPanel implements ActionListener{
 			if (e.getSource()==salir) {
 	            System.exit(0);
 	        }
+			else if (e.getSource()==verif) {
+				
+			}
 			else if (e.getSource()==volver){
 				myhandler.principalframe();
 			}

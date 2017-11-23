@@ -14,7 +14,13 @@ public class PedidoBO {
 	}
 	
 	public void crearPedido(Pedido u) {
+		//u.setDestino(null);
+		if(u.getDestino()!= null) {
 			dao.crearPedido(u);
+		}
+		else {
+			myhandler.mostrarmsj("Datos incorrectos");
+		}
 	}
 	
 	public void insertarPedido(Pedido u) {
