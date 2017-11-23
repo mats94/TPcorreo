@@ -11,7 +11,9 @@ public class PedidoBO {
 		myhandler = handler;
 	}
 	public void crearPedido(Pedido u) {
-		dao.crearPedido(u);
+		if(u.getApellido() != null && u.getNombre() != null && u.getDireccion() != null && u.getTelefono() != null && u.getCarta().getDireccionentrega() != null) {
+			dao.crearPedido(u);
+		}
 	}
 	
 	public void insertarPedido(Pedido u) {
