@@ -1,11 +1,5 @@
 package interfaces;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 import entidades.Pedido;
 import interfaces.Login;
 public class Handler {
@@ -30,17 +24,17 @@ public class Handler {
 	}
 	
 	public void baja() {
-		jframe.setTitle("Baja");
+		jframe.setTitle("Eliminar Pedido");
 		jframe.cambio(new Baja(this));
 	}
 
 	public void modificacion() {
-		jframe.setTitle("Modificacion");
+		jframe.setTitle("Modificar Pedido");
 		jframe.cambio(new Modificacion(this));
 	}
 	
 	public void alta() {
-		jframe.setTitle("Alta");
+		jframe.setTitle("Nuevo Pedido");
 		jframe.cambio(new Alta(this));
 	}
 	public void mostrarmsj(String msj) {

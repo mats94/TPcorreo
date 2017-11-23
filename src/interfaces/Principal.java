@@ -18,14 +18,14 @@ public class Principal extends JPanel implements ActionListener{
 			Box box = Box.createVerticalBox();
 
 			myhandler = handler;
-			eemp=new JButton("Eliminar Empleado");
+			eemp=new JButton("Eliminar Pedido");
 			eemp.setBounds(300,250,100,30);
 	 		box.add(eemp);
 	 		eemp.addActionListener(this);
 	 		
 	 		box.add(Box.createVerticalStrut(10));
 
-	 		memp=new JButton("Modificar Empleado");
+	 		memp=new JButton("Modificar Pedido");
 	 		memp.setBounds(300,250,100,30);
 	 		box.add(memp);
 	 		memp.addActionListener(this);
@@ -33,7 +33,7 @@ public class Principal extends JPanel implements ActionListener{
 	 		box.add(Box.createVerticalStrut(10));
 	 		
 
-			cemp=new JButton("Crear Empleado");
+			cemp=new JButton("Nuevo Pedido");
 			cemp.setBounds(300,250,100,30);
 	 		box.add(cemp);
 	 		cemp.addActionListener(this);

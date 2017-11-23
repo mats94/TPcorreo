@@ -24,7 +24,7 @@ class Login extends JFrame implements ActionListener
 	   
 	  panel=new JPanel();
 	  add(panel,BorderLayout.CENTER);
-	  setTitle("LOGIN");
+	  setTitle("Administracion de pedidos");
   
 	  box.add(createLabelTextfield("Nombre :", user));
 	  box.add(createLabelTextfield("Contraseña :", pass));
