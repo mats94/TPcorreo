@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import entidades.Pedido;
 import interfaces.PedidoBO;
 
 
@@ -13,7 +14,7 @@ public class DataManager {
 	public void createUserTable() {
 
 		Connection c = DBManager.connect();
-		bo = new PedidoBO();
+		//bo = new PedidoBO();
 		String sql = "CREATE TABLE pedidos ( id INTEGER IDENTITY, nombre VARCHAR(256), apellido VARCHAR(256), direccion VARCHAR(256), telefono VARCHAR(256))";
 		
 		try {
@@ -38,8 +39,8 @@ public class DataManager {
 		
 
 	}
-	public void crearPedido(String nombre, String apellido, String direccion, String telefono) {
-		String sql = "INSERT INTO pedidos (nombre, apellido, direccion, telefono) VALUES ('" + nombre + "', '" + apellido + "', '" + direccion + "', '" + telefono + "')";
+	public void crearPedido(Pedido p) {
+		String sql = "INSERT INTO pedidos (nombre, apellido, direccion, telefono) VALUES ('" + p.getNombre() + "', '" + p.getApellido() + "', '" + p.getDireccion() + "', '" + p.getTelefono() + "')";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();

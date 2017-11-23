@@ -6,7 +6,7 @@ import entidades.Pedido;
 
 public interface PedidoDAO {
 
-	public void insertarPedido(Pedido u);
+	public void insertarPedido(Pedido u);//llama a DataManager.crearPedido(u)
 	public void deletePedidoByUsername(String nombre);
 	public void updatePedido(Pedido u);
 	public Pedido getPedidoByUsername(String nombre);
