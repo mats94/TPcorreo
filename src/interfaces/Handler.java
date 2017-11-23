@@ -6,11 +6,13 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import entidades.Pedido;
 import interfaces.Login;
 public class Handler {
 	private Login jframe;
+	private PedidoBO bo;
 	public Handler() {
-		PedidoBO bo = new PedidoBO(this);
+		bo = new PedidoBO(this);
 		loginframe();
 	}
 	
@@ -42,6 +44,9 @@ public class Handler {
 	}
 	public void mostrarmsj(String msj) {
 		jframe.mostrarmsj(msj);
+	}
+	public void mandardatos(Pedido u) {
+		bo.crearPedido(u);
 	}
 	
 	/*private static JMenuBar menu() {

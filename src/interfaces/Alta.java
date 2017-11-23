@@ -113,6 +113,9 @@ public class Alta extends JPanel implements ActionListener{
 			else if (e.getSource()==volver){	
 		        myhandler.principalframe();
 			}
+			else if (e.getSource()==enviar){	
+		        myhandler.mandardatos(u);
+			}
 			
 		}
 }
