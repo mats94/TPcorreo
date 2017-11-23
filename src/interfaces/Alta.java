@@ -29,12 +29,13 @@ public class Alta extends JPanel implements ActionListener{
 	private JButton volver;
 	private JButton enviar;
 	private Handler myhandler;
+	private JTextField nombre;
 	public Alta(Handler handler) {
 		
 			myhandler = handler;
 			
 			Box box = Box.createVerticalBox();
-			JTextField nombre = new JTextField(10);
+			nombre = new JTextField(10);
 			box.add(createLabelTextfield("Nombre :", nombre));
 			box.add(createLabelTextfield("Apellido :", 10));
 			box.add(createLabelTextfield("Peso :", 10));
@@ -117,6 +118,7 @@ public class Alta extends JPanel implements ActionListener{
 			}
 			else if (e.getSource()==enviar){
 				Pedido u = new Pedido();
+				nombre.getText();
 		        myhandler.mandardatos(u);
 			}
 			
