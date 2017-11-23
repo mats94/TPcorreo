@@ -8,6 +8,8 @@ public class Pedido {
 	private String apellido;
 	private String direccion;
 	private String telefono;
+	private String estado;
+	private String destino;
 	private Carta carta;
 
 
@@ -37,5 +39,17 @@ public class Pedido {
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	public String getDestino() {
+		return destino;
+	}
+	public void setDestino(String destino) {
+		this.destino = destino;
 	}
 }
