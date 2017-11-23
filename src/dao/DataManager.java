@@ -11,6 +11,9 @@ import interfaces.PedidoBO;
 public class DataManager {
 
 	private PedidoBO bo;
+	public DataManager(PedidoBO pedido) {
+		bo = pedido;
+	}
 	public void createUserTable() {
 
 		Connection c = DBManager.connect();

@@ -12,8 +12,8 @@ public class Handler {
 	private Login jframe;
 	private PedidoBO bo;
 	public Handler() {
-		bo = new PedidoBO(this);
 		loginframe();
+		bo = new PedidoBO(this);
 	}
 	
 	private void loginframe() {
