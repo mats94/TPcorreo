@@ -1,16 +1,17 @@
 package interfaces;
 
-import clientedao.PedidoDAO;
+
+import dao.DataManager;
 import entidades.Pedido;
 public class PedidoBO {
 
 	Handler myhandler;
-	PedidoDAO dao;
+	DataManager dao;
 	PedidoBO(Handler handler){
 		myhandler = handler;
 	}
 	public void crearPedido(Pedido u) {
-		dao.insertarPedido(u);
+		dao.crearPedido(u);
 	}
 	
 	public void insertarPedido(Pedido u) {

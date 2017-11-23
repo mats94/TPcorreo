@@ -14,8 +14,8 @@ public class DataManager {
 	public void createUserTable() {
 
 		Connection c = DBManager.connect();
-		//bo = new PedidoBO();
-		String sql = "CREATE TABLE pedidos ( id INTEGER IDENTITY, nombre VARCHAR(256), apellido VARCHAR(256), direccion VARCHAR(256), telefono VARCHAR(256))";
+		
+		String sql = "CREATE TABLE pedidos ( id INTEGER IDENTITY, nombre VARCHAR(256), apellido VARCHAR(256), direccion VARCHAR(256), telefono VARCHAR(256), direcciondestino VARCHAR(256), estadoenvio VARCHAR(256))";
 		
 		try {
 			Statement s = c.createStatement();
@@ -40,7 +40,7 @@ public class DataManager {
 
 	}
 	public void crearPedido(Pedido p) {
-		String sql = "INSERT INTO pedidos (nombre, apellido, direccion, telefono) VALUES ('" + p.getNombre() + "', '" + p.getApellido() + "', '" + p.getDireccion() + "', '" + p.getTelefono() + "')";
+		String sql = "INSERT INTO pedidos (nombre, apellido, direccion, telefono) VALUES ('" + p.getNombre() + "', '" + p.getApellido() + "', '" + p.getDireccion() + "', '" + p.getTelefono() + "', '" + p.getCarta().getDireccionentrega() + "', '" + p.getCarta().getEstadoenvio() + "')";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
