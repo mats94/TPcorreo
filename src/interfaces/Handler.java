@@ -20,6 +20,7 @@ public class Handler {
 	jframe = new Login(this);
 	jframe.setSize(300,500);
 	jframe.setVisible(true);
+	jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	public void principalframe() {
