@@ -92,7 +92,7 @@ public class Baja extends JPanel implements ActionListener{
 				u.setNombre(nombre);
 				u.setApellido(apellido);
 	    
-		        myhandler.mandardatos(u);
+		        myhandler.eliminar(this.apellido.getText());
 			}
 			
 		}

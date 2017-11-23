@@ -1,5 +1,11 @@
 package interfaces;
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
 import entidades.Pedido;
 import interfaces.Login;
 public class Handler {
@@ -20,7 +26,8 @@ public class Handler {
 	public void principalframe() {
 		//JFrame frame = new JFrame("Correo");
 		jframe.setTitle("Menu Principal");
-		jframe.cambio(new Principal(this));			
+		jframe.add(menu());
+		jframe.cambio(new Principal(this));
 	}
 	
 	public void baja() {
@@ -37,6 +44,9 @@ public class Handler {
 		jframe.setTitle("Nuevo Pedido");
 		jframe.cambio(new Alta(this));
 	}
+	public void mostrarERROR(String msj) {
+		jframe.mostrarERROR(msj);
+	}
 	public void mostrarmsj(String msj) {
 		jframe.mostrarmsj(msj);
 	}
@@ -52,8 +62,11 @@ public class Handler {
 	public void mostrarMOD(Pedido p, Modificacion m){
 		m.mostrar(p);
 	}
+	public void eliminar(String dato) {
+		bo.borraPedido(dato);
+	}
 	
-	/*private static JMenuBar menu() {
+	public JMenuBar menu() {
 		JMenuBar menubar = new JMenuBar();
 		JMenu menu = new JMenu("Menu");
 		JMenu submenu = new JMenu("Menu Principal");
@@ -68,6 +81,6 @@ public class Handler {
 		menu.add(submenu4);
 		menubar.add(menu);
 		return menubar;
-	}*/
+	}
 
 }

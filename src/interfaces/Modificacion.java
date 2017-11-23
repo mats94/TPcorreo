@@ -38,7 +38,7 @@ public class Modificacion extends JPanel implements ActionListener{
 			destino = new JTextField(10);
 			
 			//box.add(createLabelTextfield("Nombre del cliente:", buscarnombre));
-			box.add(createLabelTextfield("Direccion de envio:", buscardireccion));
+			box.add(createLabelTextfield("Apellido:", buscardireccion));
 			
 			box.add(Box.createVerticalStrut(10));
 			
@@ -50,11 +50,11 @@ public class Modificacion extends JPanel implements ActionListener{
 		 	box.add(Box.createVerticalStrut(10));
 		 	
 			box.add(createLabelTextfield("Nuevo Nombre:", nombre));
-			box.add(createLabelTextfield("Nuevo Apellido:", apellido));
+			// box.add(createLabelTextfield("Nuevo Apellido:", apellido));
 			box.add(createLabelTextfield("Nueva Direccion:", direccion));
 			//box.add(createLabelTextfield("Nuevo Telefono:", telefono));
-			box.add(createLabelTextfield("Nuevo Destino:", estado));
-			box.add(createLabelTextfield("Nuevo Estado del envio:", destino));
+			box.add(createLabelTextfield("Nuevo Destino:", destino));
+			box.add(createLabelTextfield("Nuevo Estado del envio:", estado));
 			
 			box.add(Box.createVerticalStrut(20));
 			

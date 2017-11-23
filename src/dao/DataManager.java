@@ -28,7 +28,7 @@ public class DataManager {
 			try {
 				c.rollback();
 				e.printStackTrace();
-				bo.error("Ya existe la DB");
+				bo.mensaje("Ya existe la DB");
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
@@ -68,13 +68,14 @@ public class DataManager {
 		}
 	}
 	
-	public void borraPedido(int id) {
-		String sql = "DELETE FROM pedidos WHERE user = '" + id + "'";
+	public void borraPedido(String dato) {
+		String sql = "DELETE FROM pedidos WHERE apellido = '" + dato + "'";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
 			s.executeUpdate(sql);
 			c.commit();
+			bo.mensaje("eliminado exitoso");
 		} catch (SQLException e) {
 			try {
 				c.rollback();
@@ -93,12 +94,13 @@ public class DataManager {
 	}
 	
 	public void actualizaPedido(Pedido p) {
-		String sql = "UPDATE pedidos set direccion= '" + p.getDireccion() + "', nombre = '" + p.getNombre() + "', apellido = '" + p.getApellido() + "' WHERE direcciondestino = '" + p.getDestino() + "'";
+		String sql = "UPDATE pedidos set direccion = '" + p.getDireccion() + "', nombre = '" + p.getNombre() + "', apellido = '" + p.getApellido() + "', direcciondestino = '" + p.getDestino() +  "' WHERE apellido = '" + p.getApellido() + "'";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
 			s.executeUpdate(sql);
 			c.commit();
+			bo.mensaje("se actualizo con exito");
 		} catch (SQLException e) {
 			try {
 				c.rollback();
@@ -116,8 +118,8 @@ public class DataManager {
 
 	}
 	
-	public void muestraPedido(String dir, Modificacion m) {
-		String sql = "SELECT * FROM pedidos WHERE direcciondestino = '" + dir + "'";
+	public void muestraPedido(String ape, Modificacion m) {
+		String sql = "SELECT * FROM pedidos WHERE apellido = '" + ape + "'";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
@@ -129,14 +131,13 @@ public class DataManager {
 				System.out.print("\t" + rs.getString("nombre"));
 				System.out.print("\t" + rs.getString("apellido"));
 				System.out.print("\t" + rs.getString("direccion"));
-				System.out.print("\t" + rs.getString("telefono"));
 				System.out.println();
 				Pedido pedido = new Pedido();
 				pedido.setNombre(rs.getString("Nombre"));
 				pedido.setApellido(rs.getString("Apellido"));
 				pedido.setDireccion(rs.getString("direccion"));
 				pedido.setDestino(rs.getString("direcciondestino"));
-				pedido.setEstado("estadoenvio");
+				pedido.setEstado(rs.getString("estadoenvio"));
 				bo.muestraPedido(pedido ,m);
 			}
 			

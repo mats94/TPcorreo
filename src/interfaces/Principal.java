@@ -16,13 +16,11 @@ public class Principal extends JPanel implements ActionListener{
 	public Principal(Handler handler){
 		
 			Box box = Box.createVerticalBox();
-
 			myhandler = handler;
 			eemp=new JButton("Eliminar Pedido");
 			eemp.setBounds(300,250,100,30);
 	 		box.add(eemp);
 	 		eemp.addActionListener(this);
-	 		
 	 		box.add(Box.createVerticalStrut(10));
 
 	 		memp=new JButton("Modificar Pedido");

@@ -19,7 +19,7 @@ public class PedidoBO {
 			dao.crearPedido(u);
 		}
 		else {
-			myhandler.mostrarmsj("Datos incorrectos");
+			myhandler.mostrarERROR("Datos incorrectos");
 		}
 	}
 	
@@ -28,7 +28,7 @@ public class PedidoBO {
 	}
 	
 	public void borraPedido(String user) {
-		borraPedido(user);
+		dao.borraPedido(user);
 	}
 	
 	public void actualizaPedido(Pedido u) {
@@ -42,10 +42,12 @@ public class PedidoBO {
 	public void muestraTodosLosPedido() {
 		return;
 	}
-	
+	public void mensaje(String msj) {
+		myhandler.mostrarmsj(msj);
+	}
 	public void error(String msj) {
 		// pasar msj al handler para que el despues lo muestre en pantalla
-		myhandler.mostrarmsj(msj);
+		myhandler.mostrarERROR(msj);
 		
 	}
 	public void buscarinfo(String dato,Modificacion m) {

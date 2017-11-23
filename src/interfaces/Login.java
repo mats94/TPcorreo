@@ -27,7 +27,7 @@ class Login extends JFrame implements ActionListener
 	  setTitle("Administracion de pedidos");
   
 	  box.add(createLabelTextfield("Nombre :", user));
-	  box.add(createLabelTextfield("Contraseña :", pass));
+	  box.add(createLabelTextfield("Contraseï¿½a :", pass));
 	  
 	  box.add(Box.createVerticalStrut(20));
 	  
@@ -91,7 +91,10 @@ class Login extends JFrame implements ActionListener
 				panel.setVisible(true);
 	  
   	}
-			public void mostrarmsj(String msj) {
+			public void mostrarERROR(String msj) {
 				JOptionPane.showMessageDialog(this,msj, "ERROR",JOptionPane.ERROR_MESSAGE);
+  	}
+			public void mostrarmsj(String msj) {
+				JOptionPane.showMessageDialog(this,msj, "Correcto",JOptionPane.OK_OPTION);
   	}
 }
