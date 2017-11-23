@@ -34,8 +34,8 @@ public class Alta extends JPanel implements ActionListener{
 			myhandler = handler;
 			
 			Box box = Box.createVerticalBox();
-			JTextField hola = new JTextField(10);
-			box.add(createLabelTextfield("Nombre :", hola));
+			JTextField nombre = new JTextField(10);
+			box.add(createLabelTextfield("Nombre :", nombre));
 			box.add(createLabelTextfield("Apellido :", 10));
 			box.add(createLabelTextfield("Peso :", 10));
 			box.add(createLabelTextfield("Tipo de envio :", 10));
