@@ -22,6 +22,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
+import entidades.Pedido;
+
 public class Alta extends JPanel implements ActionListener{
 	private JButton salir;
 	private JButton volver;
@@ -113,7 +115,8 @@ public class Alta extends JPanel implements ActionListener{
 			else if (e.getSource()==volver){	
 		        myhandler.principalframe();
 			}
-			else if (e.getSource()==enviar){	
+			else if (e.getSource()==enviar){
+				Pedido u = new Pedido();
 		        myhandler.mandardatos(u);
 			}
 			
