@@ -3,12 +3,14 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import interfaces.Login;
 public class Handler {
 	private Login jframe;
 	public Handler() {
+		PedidoBO bo = new PedidoBO(this);
 		loginframe();
 	}
 	
@@ -39,6 +41,9 @@ public class Handler {
 	public void alta() {
 		jframe.setTitle("Alta");
 		jframe.cambio(new Alta(this));
+	}
+	public void mostrarmsj(String msj) {
+		jframe.mostrarmsj(msj);
 	}
 	
 	/*private static JMenuBar menu() {

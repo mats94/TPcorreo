@@ -64,4 +64,8 @@ class Login extends JFrame implements ActionListener
 	  panel.setVisible(true);
 	  
   }
+  	public void mostrarmsj(String msj) {
+  		JOptionPane.showMessageDialog(this,msj, 
+				  "ERROR",JOptionPane.ERROR_MESSAGE);
+  	}
 }

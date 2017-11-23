@@ -1,11 +1,16 @@
-package bo;
+package interfaces;
 
+import clientedao.PedidoDAO;
 import entidades.Pedido;
-
 public class PedidoBO {
 
+	Handler myhandler;
+	PedidoDAO dao;
+	PedidoBO(Handler handler){
+		myhandler = handler;
+	}
 	public void crearPedido(Pedido u) {
-		crearPedido(u);
+		dao.insertarPedido(u);
 	}
 	
 	public void insertarPedido(Pedido u) {
@@ -23,5 +28,8 @@ public class PedidoBO {
 	public void muestraTodosLosPedido() {
 		return;
 	}
-	
+	public void error(String msj) {
+		// pasar msj al handler para que el despues lo muestre en pantalla
+		
+	}
 }

@@ -4,13 +4,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import interfaces.PedidoBO;
+
 
 public class DataManager {
 
+	private PedidoBO bo;
 	public void createUserTable() {
 
 		Connection c = DBManager.connect();
-		
+		bo = new PedidoBO();
 		String sql = "CREATE TABLE pedidos ( id INTEGER IDENTITY, nombre VARCHAR(256), apellido VARCHAR(256), direccion VARCHAR(256), telefono VARCHAR(256))";
 		
 		try {
@@ -20,6 +23,7 @@ public class DataManager {
 			try {
 				c.rollback();
 				e.printStackTrace();
+				bo.error("error al crear la DB");
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
@@ -45,6 +49,7 @@ public class DataManager {
 			try {
 				c.rollback();
 				e.printStackTrace();
+				bo.error("no se hacer el pedido");
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
