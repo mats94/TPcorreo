@@ -16,7 +16,7 @@ public class Modificacion extends JPanel implements ActionListener{
 	private JButton enviar;
 	private JButton verif;
 	private Handler myhandler;
-	private JTextField buscarapellido;
+	private JTextField buscardireccion;
 	private JTextField buscarnombre;
 	private JTextField apellido;
 	private JTextField nombre;
@@ -29,8 +29,7 @@ public class Modificacion extends JPanel implements ActionListener{
 			myhandler = handler;
 			
 			Box box = Box.createVerticalBox();
-			buscarnombre = new JTextField(10);
-			buscarapellido = new JTextField(10);
+			buscardireccion = new JTextField(10);
 			nombre = new JTextField(10);
 			apellido = new JTextField(10);
 			telefono = new JTextField(10);
@@ -38,8 +37,8 @@ public class Modificacion extends JPanel implements ActionListener{
 			estado = new JTextField(10);
 			destino = new JTextField(10);
 			
-			box.add(createLabelTextfield("Nombre del cliente:", buscarnombre));
-			box.add(createLabelTextfield("Apelldio del cliente:", buscarapellido));
+			//box.add(createLabelTextfield("Nombre del cliente:", buscarnombre));
+			box.add(createLabelTextfield("Direccion de envio:", buscardireccion));
 			
 			box.add(Box.createVerticalStrut(10));
 			
@@ -52,8 +51,8 @@ public class Modificacion extends JPanel implements ActionListener{
 		 	
 			box.add(createLabelTextfield("Nuevo Nombre:", nombre));
 			box.add(createLabelTextfield("Nuevo Apellido:", apellido));
-			box.add(createLabelTextfield("Nueva Direccion:", telefono));
-			box.add(createLabelTextfield("Nuevo Telefono:", direccion));
+			box.add(createLabelTextfield("Nueva Direccion:", direccion));
+			//box.add(createLabelTextfield("Nuevo Telefono:", telefono));
 			box.add(createLabelTextfield("Nuevo Destino:", estado));
 			box.add(createLabelTextfield("Nuevo Estado del envio:", destino));
 			
@@ -103,7 +102,7 @@ public class Modificacion extends JPanel implements ActionListener{
 	            System.exit(0);
 	        }
 			else if (e.getSource()==verif) {
-				myhandler.buscarinfo(this.direccion.getText(),this);
+				myhandler.buscarinfo(this.buscardireccion.getText(),this);
 			}
 			else if (e.getSource()==volver){
 				myhandler.principalframe();
@@ -118,8 +117,8 @@ public class Modificacion extends JPanel implements ActionListener{
 				String buscarapellido;
 				String buscarnombre;
 				
-				buscarapellido = this.buscarapellido.getText();
-				buscarnombre = this.buscarnombre.getText();
+				//buscarapellido = this.buscardireccion.getText();
+				//buscarnombre = this.buscarnombre.getText();
 				apellido = this.apellido.getText();
 				nombre = this.nombre.getText();
 				telefono = this.telefono.getText();
@@ -129,8 +128,6 @@ public class Modificacion extends JPanel implements ActionListener{
 				
 				Pedido u = new Pedido();
 				
-				u.setBuscarnombre(buscarnombre);
-				u.setBuscarapellido(buscarapellido);
 				u.setNombre(nombre);
 				u.setApellido(apellido);
 				u.setTelefono(telefono);
@@ -139,7 +136,7 @@ public class Modificacion extends JPanel implements ActionListener{
 				u.setDestino(destino);
 			    
 			    
-		        myhandler.mandardatos(u);
+		        myhandler.actualizardatos(u);
 			}
 		}
 		public void mostrar(Pedido p) {

@@ -43,6 +43,9 @@ public class Handler {
 	public void mandardatos(Pedido u) {
 		bo.crearPedido(u);
 	}
+	public void actualizardatos(Pedido u) {
+		bo.actualizaPedido(u);
+	}
 	public void buscarinfo(String dato,Modificacion m) {
 		bo.buscarinfo(dato,m);
 	}

@@ -32,7 +32,7 @@ public class PedidoBO {
 	}
 	
 	public void actualizaPedido(Pedido u) {
-		actualizaPedido(u);
+		dao.actualizaPedido(u);
 	}
 	
 	public void muestraPedido(Pedido p, Modificacion m) {

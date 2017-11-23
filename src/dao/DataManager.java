@@ -92,8 +92,8 @@ public class DataManager {
 		}
 	}
 	
-	public void actualizaPedido(int id, String user, String email, String pass) {
-		String sql = "UPDATE pedidos set email = '" + email + "', pass = '" + user + "' WHERE ID = '" + id + "'";
+	public void actualizaPedido(Pedido p) {
+		String sql = "UPDATE pedidos set direccion= '" + p.getDireccion() + "', nombre = '" + p.getNombre() + "', apellido = '" + p.getApellido() + "' WHERE direcciondestino = '" + p.getDestino() + "'";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
