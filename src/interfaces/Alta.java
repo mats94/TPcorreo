@@ -34,8 +34,8 @@ public class Alta extends JPanel implements ActionListener{
 			myhandler = handler;
 			
 			Box box = Box.createVerticalBox();
-			
-			box.add(createLabelTextfield("Nombre :", 10));
+			JTextField hola = new JTextField(10);
+			box.add(createLabelTextfield("Nombre :", hola));
 			box.add(createLabelTextfield("Apellido :", 10));
 			box.add(createLabelTextfield("Peso :", 10));
 			box.add(createLabelTextfield("Tipo de envio :", 10));
@@ -61,13 +61,13 @@ public class Alta extends JPanel implements ActionListener{
 			add(box);
 			
 		}
-		private Box createLabelTextfield(String campo,int capacidad) {
+		private Box createLabelTextfield(String campo,JTextField textfield) {
 			
 			Box box = Box.createHorizontalBox();
 			box.add(Box.createHorizontalStrut(30));
 			box.add(new JLabel(campo));
 			box.add(Box.createHorizontalStrut(10));
-			box.add(wrapTextfield(new JTextField(capacidad)));
+			box.add(wrapTextfield(textfield));
 			box.add(Box.createHorizontalStrut(20));
 			return box;
 		}
