@@ -31,7 +31,7 @@ public class Baja extends JPanel implements ActionListener{
 			
 			box.add(Box.createVerticalStrut(10));
 			
-			box.add(createLabelTextfield("Apellido:", apellido));
+			box.add(createLabelTextfield("Apellido del cliente:", apellido));
 			
 			box.add(Box.createVerticalStrut(10));
 						

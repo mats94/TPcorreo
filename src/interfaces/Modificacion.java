@@ -51,7 +51,7 @@ public class Modificacion extends JPanel implements ActionListener{
 			destino = new JTextField(10);
 			
 			box.add(createLabelTextfield("Nombre del cliente:", buscarnombre));
-			box.add(createLabelTextfield("Documento:", buscarapellido));
+			box.add(createLabelTextfield("Apelldio del cliente:", buscarapellido));
 			
 			box.add(Box.createVerticalStrut(10));
 			
