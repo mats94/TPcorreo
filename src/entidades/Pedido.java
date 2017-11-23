@@ -6,6 +6,8 @@ public class Pedido {
 
 	private String nombre;
 	private String apellido;
+	private String buscarnombre;
+	private String buscarapellido;
 	private String direccion;
 	private String telefono;
 	private String estado;
@@ -52,4 +54,17 @@ public class Pedido {
 	public void setDestino(String destino) {
 		this.destino = destino;
 	}
+	public String getBuscarnombre() {
+		return buscarnombre;
+	}
+	public String getBuscarapellido() {
+		return buscarapellido;
+	}
+	public void setBuscarnombre(String buscarnombre) {
+		this.buscarnombre = buscarnombre;
+	}
+	public void setBuscarapellido(String buscarapellido) {
+		this.buscarapellido = buscarapellido;
+	}
+
 }

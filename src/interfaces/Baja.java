@@ -1,24 +1,13 @@
 package interfaces;
 
-import java.awt.BorderLayout;
-import java.awt.event.*;
-import java.awt.Color;
 import java.awt.Component;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.Panel;
-
 import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import entidades.Pedido;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,16 +17,21 @@ public class Baja extends JPanel implements ActionListener{
 	private JButton volver;
 	private JButton enviar;
 	private Handler myhandler;
+	private JTextField apellido;
+	private JTextField nombre;
 	public Baja(Handler handler) {
 		
 			myhandler = handler;
 			Box box = Box.createVerticalBox();
 			
-			box.add(createLabelTextfield("Nombre del cliente:", 10));
+			nombre = new JTextField(10);
+			apellido = new JTextField(10);
+			
+			box.add(createLabelTextfield("Nombre del cliente:", nombre));
 			
 			box.add(Box.createVerticalStrut(10));
 			
-			box.add(createLabelTextfield("Documento:", 10));
+			box.add(createLabelTextfield("Apellido:", apellido));
 			
 			box.add(Box.createVerticalStrut(10));
 						
@@ -62,38 +56,45 @@ public class Baja extends JPanel implements ActionListener{
 				
 			add(box);
 		}
-		private Box createLabelTextfield(String campo,int capacidad) {
-			
+		private Box createLabelTextfield(String campo,JTextField textfield) {
+		
 			Box box = Box.createHorizontalBox();
 			box.add(Box.createHorizontalStrut(30));
 			box.add(new JLabel(campo));
 			box.add(Box.createHorizontalStrut(10));
-			box.add(wrapTextfield(new JTextField(capacidad)));
+			box.add(wrapTextfield(textfield));
 			box.add(Box.createHorizontalStrut(20));
-			
 			return box;
 		}
+	
 		private Component wrapTextfield(JTextField textField) {
 			JPanel aux = new JPanel();
 			aux.add(textField);
 			return aux;
 		}
 				
-		private Box createButton(String button1) {
-
-			
-			Box box = Box.createHorizontalBox();
-			box.add(new JButton(button1));
-			box.add(Box.createVerticalStrut(30));
-			return box;
-		}
-		
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource()==salir) {
 	            System.exit(0);
 			}
 	        else if (e.getSource()==volver){	
 	        	myhandler.principalframe();
-				}
 			}
+	        else if (e.getSource()==enviar){
+				String apellido;
+				String nombre;
+				
+				apellido = this.apellido.getText();
+				nombre = this.nombre.getText();
+				
+				Pedido u = new Pedido();
+				
+				u.setNombre(nombre);
+				u.setApellido(apellido);
+	    
+		        myhandler.mandardatos(u);
+			}
+			
+		}
+		
 	}

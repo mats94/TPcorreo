@@ -40,16 +40,22 @@ public class Alta extends JPanel implements ActionListener{
 			box.add(createLabelTextfield("Destino :", destino));
 			box.add(createLabelTextfield("Estado de envio :", estado));
 			
+			box.add(Box.createVerticalStrut(20));
+			
 			enviar=new JButton("Enviar formulario");
 			enviar.setBounds(300,250,100,30);
 		 	box.add(enviar);
 		 	enviar.addActionListener(this);
-
+		 	
+		 	box.add(Box.createVerticalStrut(20));
+		 	
 			volver=new JButton("Volver al menu principal");
 			volver.setBounds(300,250,100,30);
 		 	box.add(volver);
 		 	volver.addActionListener(this);
-			
+		 	
+		 	box.add(Box.createVerticalStrut(20));
+		 	
 			salir=new JButton("Salir Del Programa");
 			salir.setBounds(300,250,100,30);
 			box.add(salir);
