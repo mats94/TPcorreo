@@ -43,7 +43,7 @@ public class DataManager {
 
 	}
 	public void crearPedido(Pedido p) {
-		String sql = "INSERT INTO pedidos (nombre, apellido, direccion, telefono, direcciondestino, estadoenvio) VALUES ('" + p.getNombre() + "', '" + p.getApellido() + "', '" + p.getDireccion() + "', '" + p.getTelefono() + "', '" + p.getDireccion() + "', '" + p.getEstado() + "')";
+		String sql = "INSERT INTO pedidos (nombre, apellido, direccion, telefono, direcciondestino, estadoenvio) VALUES ('" + p.getNombre() + "', '" + p.getApellido() + "', '" + p.getDireccion() + "', '" + p.getTelefono() + "', '" + p.getDestino() + "', '" + p.getEstado() + "')";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
@@ -53,7 +53,7 @@ public class DataManager {
 			try {
 				c.rollback();
 				e.printStackTrace();
-				bo.error("no se hacer el pedido");
+				bo.error("no se puede hacer el pedido");
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
@@ -62,6 +62,7 @@ public class DataManager {
 				c.close();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
+				bo.error("no se puedo terminar la conexion");
 			}
 		}
 	}
@@ -77,6 +78,7 @@ public class DataManager {
 			try {
 				c.rollback();
 				e.printStackTrace();
+				bo.error("usuario incorrecto");
 			} catch (SQLException e1) {
 				//no hago nada
 			}
