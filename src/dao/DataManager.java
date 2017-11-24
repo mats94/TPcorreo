@@ -8,9 +8,10 @@ import entidades.Pedido;
 import interfaces.Modificacion;
 import interfaces.PedidoBO;
 
-
+//TODO esto no es un DataManager
 public class DataManager {
 
+	//TODO el bo no va en el DAO
 	private PedidoBO bo;
 	public DataManager(PedidoBO pedido) {
 		bo = pedido;

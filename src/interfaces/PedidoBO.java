@@ -23,7 +23,7 @@ public class PedidoBO {
 		}
 	}
 	
-	public void insertarPedido(Pedido u) {
+	public void insertarPedido(Pedido u) { //throws DAOException
 		insertarPedido(u);
 	}
 	

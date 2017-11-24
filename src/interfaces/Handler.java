@@ -26,7 +26,7 @@ public class Handler {
 	public void principalframe() {
 		//JFrame frame = new JFrame("Correo");
 		jframe.setTitle("Menu Principal");
-		jframe.add(menu());
+		jframe.setJMenuBar(menu());
 		jframe.cambio(new Principal(this));
 	}
 	
@@ -35,6 +35,8 @@ public class Handler {
 		jframe.cambio(new Baja(this));
 	}
 
+	//TODO falta panel mostrar todos
+	
 	public void modificacion() {
 		jframe.setTitle("Modificar Pedido");
 		jframe.cambio(new Modificacion(this));
@@ -54,7 +56,11 @@ public class Handler {
 		bo.crearPedido(u);
 	}
 	public void actualizardatos(Pedido u) {
+		//try{
 		bo.actualizaPedido(u);
+		//} catch (DAOException) {
+		// JOPtionPane mostrar error
+		//}
 	}
 	public void buscarinfo(String dato,Modificacion m) {
 		bo.buscarinfo(dato,m);
@@ -66,20 +72,24 @@ public class Handler {
 		bo.borraPedido(dato);
 	}
 	
+	//TODO sacar el panel botones y usar la menubar
 	public JMenuBar menu() {
 		JMenuBar menubar = new JMenuBar();
 		JMenu menu = new JMenu("Menu");
 		JMenu submenu = new JMenu("Menu Principal");
-		JMenu submenu2 = new JMenu("Crear Empleado");
-		JMenu submenu3 = new JMenu("Modificar Empleado");
-		JMenu submenu4 = new JMenu("Eliminar Empleado");
+		JMenuItem submenu2 = new JMenuItem("Crear Empleado");
+		JMenuItem submenu3 = new JMenuItem("Modificar Empleado");
+		JMenuItem submenu4 = new JMenuItem("Eliminar Empleado");
 		JMenuItem menuitem = new JMenuItem("menu item 1");
+		
 		submenu.add(menuitem);
+		submenu.add(submenu2);
+		submenu.add(submenu3);
+		submenu.add(submenu4);
+		
 		menu.add(submenu);
-		menu.add(submenu2);
-		menu.add(submenu3);
-		menu.add(submenu4);
 		menubar.add(menu);
+		
 		return menubar;
 	}
 
