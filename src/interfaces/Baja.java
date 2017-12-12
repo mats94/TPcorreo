@@ -73,6 +73,7 @@ public class Baja extends JPanel implements ActionListener{
 			return aux;
 		}
 				
+		//TODO esta hardcodeado el msj de success
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource()==salir) {
 	            System.exit(0);
