@@ -7,16 +7,15 @@ import java.sql.Statement;
 import entidades.Pedido;
 import interfaces.Modificacion;
 import interfaces.PedidoBO;
+import utils.TPException;
 
 //TODO esto no es un DataManager
 public class DataManager {
 
-	//TODO el bo no va en el DAO
 	private PedidoBO bo;
-	public DataManager(PedidoBO pedido) {
-		bo = pedido;
+	public DataManager() {
 	}
-	public void createUserTable() {
+	public void createUserTable(){
 
 		Connection c = DBManager.connect();
 		
@@ -28,8 +27,8 @@ public class DataManager {
 		} catch (SQLException e) {
 			try {
 				c.rollback();
-				e.printStackTrace();
-				bo.mensaje("Ya existe la DB");
+				//e.printStackTrace();
+				//bo.mensaje("Ya existe la DB");
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
@@ -44,7 +43,7 @@ public class DataManager {
 		
 
 	}
-	public void crearPedido(Pedido p) {
+	public void crearPedido(Pedido p) throws SQLException{
 		String sql = "INSERT INTO pedidos (nombre, apellido, direccion, telefono, direcciondestino, estadoenvio) VALUES ('" + p.getNombre() + "', '" + p.getApellido() + "', '" + p.getDireccion() + "', '" + p.getTelefono() + "', '" + p.getDestino() + "', '" + p.getEstado() + "')";
 		Connection c = DBManager.connect();
 		try {
@@ -55,7 +54,7 @@ public class DataManager {
 			try {
 				c.rollback();
 				e.printStackTrace();
-				bo.error("no se puede hacer el pedido");
+				//bo.error("no se puede hacer el pedido");
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
@@ -64,7 +63,7 @@ public class DataManager {
 				c.close();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
-				bo.error("no se puedo terminar la conexion");
+				//bo.error("no se puedo terminar la conexion");
 			}
 		}
 	}
@@ -76,12 +75,12 @@ public class DataManager {
 			Statement s = c.createStatement();
 			s.executeUpdate(sql);
 			c.commit();
-			bo.mensaje("eliminado exitoso");
+			//bo.mensaje("eliminado exitoso");
 		} catch (SQLException e) {
 			try {
 				c.rollback();
 				e.printStackTrace();
-				bo.error("usuario incorrecto");
+				//bo.error("usuario incorrecto");
 			} catch (SQLException e1) {
 				//no hago nada
 			}
@@ -101,7 +100,7 @@ public class DataManager {
 			Statement s = c.createStatement();
 			s.executeUpdate(sql);
 			c.commit();
-			bo.mensaje("se actualizo con exito");
+			//bo.mensaje("se actualizo con exito");
 		} catch (SQLException e) {
 			try {
 				c.rollback();
@@ -139,7 +138,7 @@ public class DataManager {
 				pedido.setDireccion(rs.getString("direccion"));
 				pedido.setDestino(rs.getString("direcciondestino"));
 				pedido.setEstado(rs.getString("estadoenvio"));
-				bo.muestraPedido(pedido ,m);
+				//bo.muestraPedido(pedido ,m);
 			}
 			
 		} catch (SQLException e) {

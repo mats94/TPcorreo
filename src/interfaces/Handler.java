@@ -8,12 +8,18 @@ import javax.swing.JMenuItem;
 
 import entidades.Pedido;
 import interfaces.Login;
+import utils.TPException;
+
 public class Handler {
 	private Login jframe;
 	private PedidoBO bo;
 	public Handler() {
 		loginframe();
+		try {
 		bo = new PedidoBO(this);
+		} catch (TPException e) {
+			mostrarmsj("test");
+		}
 	}
 	
 	private void loginframe() {

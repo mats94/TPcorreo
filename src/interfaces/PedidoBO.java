@@ -1,22 +1,29 @@
 package interfaces;
 
 
+import java.sql.SQLException;
+
 import dao.DataManager;
 import entidades.Pedido;
+import utils.TPException;
 public class PedidoBO {
 
 	Handler myhandler;
 	DataManager dao;
-	PedidoBO(Handler handler){
+	PedidoBO(Handler handler) throws TPException{
 		myhandler = handler;
-		dao = new DataManager(this);
+		dao = new DataManager();
 		dao.createUserTable();
 	}
 	
 	public void crearPedido(Pedido u) {
 		//u.setDestino(null);
 		if(u.getDestino()!= null) {
+			try {
 			dao.crearPedido(u);
+			}catch(SQLException e) {
+				myhandler.mostrarERROR("ERROR " + e);
+			}
 		}
 		else {
 			myhandler.mostrarERROR("Datos incorrectos");
