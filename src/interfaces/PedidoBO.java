@@ -16,13 +16,15 @@ public class PedidoBO {
 		dao.createUserTable();
 	}
 	
-	public void crearPedido(Pedido u) {
+	public void crearPedido(Pedido u)throws TPException{
 		//u.setDestino(null);
 		if(u.getDestino()!= null) {
 			try {
 			dao.crearPedido(u);
 			}catch(SQLException e) {
 				myhandler.mostrarERROR("ERROR " + e);
+			}catch(TPException e) {
+				throw new TPException(e.getMensaje());
 			}
 		}
 		else {

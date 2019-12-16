@@ -43,13 +43,14 @@ public class DataManager {
 		
 
 	}
-	public void crearPedido(Pedido p) throws SQLException{
+	public void crearPedido(Pedido p) throws SQLException,TPException{
 		String sql = "INSERT INTO pedidos (nombre, apellido, direccion, telefono, direcciondestino, estadoenvio) VALUES ('" + p.getNombre() + "', '" + p.getApellido() + "', '" + p.getDireccion() + "', '" + p.getTelefono() + "', '" + p.getDestino() + "', '" + p.getEstado() + "')";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
 			s.executeUpdate(sql);
 			c.commit();
+			throw new TPException("Ejecutado correctamente");
 		} catch (SQLException e) {
 			try {
 				c.rollback();
@@ -172,6 +173,67 @@ public class DataManager {
 				System.out.print("\t" + rs.getString("Apellido"));
 				System.out.print("\t" + rs.getString("Direccion"));
 				System.out.print("\t" + rs.getString("Telefono"));
+				System.out.println();
+			}
+			
+		} catch (SQLException e) {
+			try {
+				c.rollback();
+			} catch (SQLException e1) {
+				//no hago nada
+			}
+		} finally {
+			try {
+				c.close();
+			} catch (SQLException e1) {
+				//no hago nada
+			}
+		}
+	}
+	
+	public void auth(String User, String Password) {
+		String sql = "SELECT * FROM Usuario WHERE Usuario=" + User + "AND Password=" + Password;
+		Connection c = DBManager.connect();
+		try {
+			Statement s = c.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			
+			while(rs.next()) {
+				System.out.println("Datos Usuario:");
+				System.out.print("\t" + rs.getInt("Usuario"));
+				System.out.print("\t" + rs.getString("Nombre"));
+				System.out.print("\t" + rs.getString("Apellido"));
+				System.out.print("\t" + rs.getString("Direccion"));
+				System.out.print("\t" + rs.getString("Telefono"));
+				System.out.print("\t" + rs.getString("Tipo"));
+				System.out.println();
+			}
+			
+		} catch (SQLException e) {
+			try {
+				c.rollback();
+			} catch (SQLException e1) {
+				//no hago nada
+			}
+		} finally {
+			try {
+				c.close();
+			} catch (SQLException e1) {
+				//no hago nada
+			}
+		}
+	}
+	
+	public void registrarUsuario(String User, String Password) {
+		String sql = "INSERT INTO Usuarios(USUARIO, PASSWORD) VALUES(" + User + "," + Password + ")";
+		Connection c = DBManager.connect();
+		try {
+			Statement s = c.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			
+			while(rs.next()) {
+				System.out.println("Datos Usuario:");
+				System.out.print("\t" + rs.getInt("Usuario"));
 				System.out.println();
 			}
 			

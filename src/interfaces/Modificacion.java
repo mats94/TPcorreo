@@ -105,7 +105,7 @@ public class Modificacion extends JPanel implements ActionListener{
 				myhandler.buscarinfo(this.buscardireccion.getText(),this);
 			}
 			else if (e.getSource()==volver){
-				myhandler.principalframe();
+				myhandler.ManejoEnviosFrame();
 			}
 			else if (e.getSource()==enviar){
 				String apellido;

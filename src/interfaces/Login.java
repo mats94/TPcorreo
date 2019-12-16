@@ -27,7 +27,7 @@ class Login extends JFrame implements ActionListener
 	  setTitle("Administracion de pedidos");
   
 	  box.add(createLabelTextfield("Nombre :", user));
-	  box.add(createLabelTextfield("Contrase�a :", pass));
+	  box.add(createLabelTextfield("Contrasenia :", pass));
 	  
 	  box.add(Box.createVerticalStrut(20));
 	  
@@ -70,11 +70,14 @@ class Login extends JFrame implements ActionListener
 	            System.exit(0);
 	        }
 			
-			if (value1.equals("admin") && value2.equals("admin")) {
+			if (value1.equals("test") && value2.equals("test")) {
 				//JOptionPane.showMessageDialog(this,"Logiado exitosamente", 
 				 // "Correcto",JOptionPane.DEFAULT_OPTION);
-				myhandler.principalframe();
+				myhandler.ManejoEnviosFrame();
 				//this.dispose();
+			}
+			else if(value1.equals("admin") && value2.equals("admin")) {
+				myhandler.AdministradorFrame();
 			}
 			else {
 			  JOptionPane.showMessageDialog(this,"Datos incorrectos", 

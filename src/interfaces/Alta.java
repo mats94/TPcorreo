@@ -87,7 +87,7 @@ public class Alta extends JPanel implements ActionListener{
 	            System.exit(0);
 	        }		
 			else if (e.getSource()==volver){	
-		        myhandler.principalframe();
+		        myhandler.ManejoEnviosFrame();
 			}
 			else if (e.getSource()==enviar){
 				String apellido;

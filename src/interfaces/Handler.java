@@ -1,6 +1,8 @@
 package interfaces;
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
 
+import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -28,12 +30,19 @@ public class Handler {
 	jframe.setVisible(true);
 	jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
-	public void principalframe() {
+		
+	public void ManejoEnviosFrame() {
 		//JFrame frame = new JFrame("Correo");
 		jframe.setTitle("Menu Principal");
 		jframe.setJMenuBar(menu());
 		jframe.cambio(new Principal(this));
+	}
+	
+	public void AdministradorFrame() {
+		//JFrame frame = new JFrame("Correo");
+		jframe.setTitle("Menu Principal");
+		jframe.setJMenuBar(menu());
+		jframe.cambio(new Administrador(this));
 	}
 	
 	public void baja() {
@@ -52,6 +61,25 @@ public class Handler {
 		jframe.setTitle("Nuevo Pedido");
 		jframe.cambio(new Alta(this));
 	}
+	
+	//Usuarios ABM
+	public void UsuarioBaja() {
+		jframe.setTitle("Eliminar Usuario");
+		jframe.cambio(new Baja(this));
+	}
+	
+	public void UsuarioModificacion() {
+		jframe.setTitle("Modificar Usuario");
+		jframe.cambio(new Modificacion(this));
+	}
+	
+	public void UsuarioAlta() {
+		jframe.setTitle("Nuevo Usuario");
+		jframe.cambio(new Alta(this));
+	}
+	//Fin usuarios ABM
+	
+	
 	public void mostrarERROR(String msj) {
 		jframe.mostrarERROR(msj);
 	}
@@ -59,7 +87,7 @@ public class Handler {
 		jframe.mostrarmsj(msj);
 	}
 	public void mandardatos(Pedido u) {
-		bo.crearPedido(u);
+		try {bo.crearPedido(u);}catch(TPException e){mostrarmsj(e.getMensaje());}
 	}
 	public void actualizardatos(Pedido u) {
 		//try{
@@ -82,18 +110,17 @@ public class Handler {
 	public JMenuBar menu() {
 		JMenuBar menubar = new JMenuBar();
 		JMenu menu = new JMenu("Menu");
-		JMenu submenu = new JMenu("Menu Principal");
-		JMenuItem submenu2 = new JMenuItem("Crear Empleado");
-		JMenuItem submenu3 = new JMenuItem("Modificar Empleado");
-		JMenuItem submenu4 = new JMenuItem("Eliminar Empleado");
-		JMenuItem menuitem = new JMenuItem("menu item 1");
+		//JMenuItem submenuCrear = new JMenuItem("Crear Empleado");
+		JMenuItem submenuCrear = new JMenuItem(new AbstractAction("Crear Empleado") {
+		    public void actionPerformed(ActionEvent e) {
+		    	System.out.println("holaaa");
+		    }
+		});
+		JMenuItem submenuModifica = new JMenuItem("Modificar Empleado");
+		JMenuItem submenuEliminar = new JMenuItem("Eliminar Empleado");
 		
-		submenu.add(menuitem);
-		submenu.add(submenu2);
-		submenu.add(submenu3);
-		submenu.add(submenu4);
-		
-		menu.add(submenu);
+
+		menu.add(submenuCrear);menu.add(submenuModifica);menu.add(submenuEliminar);
 		menubar.add(menu);
 		
 		return menubar;
