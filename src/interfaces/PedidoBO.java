@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import dao.DataManager;
 import entidades.Pedido;
+import entidades.Usuario;
 import utils.TPException;
 public class PedidoBO {
 
@@ -36,17 +37,57 @@ public class PedidoBO {
 		insertarPedido(u);
 	}
 	
-	public void borraPedido(String user) {
-		dao.borraPedido(user);
+	public void crearUsuario(Usuario u) throws TPException{
+		try{
+			dao.registrarUsuario(u);
+			}
+		catch(TPException e) {
+			throw new TPException(e.getMensaje());
+		}
+		catch(SQLException e) {
+			
+		}
 	}
 	
-	public void actualizaPedido(Pedido u) {
-		dao.actualizaPedido(u);
+	public void borraPedido(String user) throws TPException, SQLException{
+		try{
+			dao.borraPedido(user);
+		}catch(TPException e) {
+			throw e;
+		}catch(SQLException e) {
+			throw e;
+		}
 	}
 	
-	public void muestraPedido(Pedido p, Modificacion m) {
-		myhandler.mostrarMOD(p, m);
+	public void actualizaPedido(Pedido u) throws TPException, SQLException{
+		try{
+			dao.actualizaPedido(u);
+		}catch(TPException e) {
+			throw e;
+		}catch(SQLException e) {
+			throw e;
+		}
 	}
+	
+	public void actualizaUsuario(Usuario u) throws TPException, SQLException{
+		try{
+			dao.actualizaUsuario(u);
+		}catch(TPException e) {
+			throw e;
+		}catch(SQLException e) {
+			throw e;
+		}
+	}
+	
+	/*public void muestraPedido(Pedido p) throws TPException, SQLException{
+		try{
+			myhandler.mostrarMOD(p);
+		}catch(TPException e) {
+			throw e;
+		}catch(SQLException e) {
+			throw e;
+		}
+	}*/
 	
 	public void muestraTodosLosPedido() {
 		return;
@@ -59,7 +100,30 @@ public class PedidoBO {
 		myhandler.mostrarERROR(msj);
 		
 	}
-	public void buscarinfo(String dato,Modificacion m) {
-		dao.muestraPedido(dato,m);
+	public void buscarinfo(String dato) throws TPException{
+		try{
+			dao.muestraPedido(dato);
+		}catch(TPException e) {
+			throw e;
+		}
+	}
+	public void buscarinfoUsuario(String dato) throws TPException, SQLException{
+		try{
+			dao.muestraPedidoUsuario(dato);
+		}catch(TPException e) {
+			throw e;
+		}catch(SQLException e) {
+			throw e;
+		}
+	}
+	
+	public void authUser(String usuario, String password) throws TPException,SQLException{
+		try {
+			dao.auth(usuario, password);
+		}catch(TPException e) {
+			throw e;
+		}catch(SQLException e) {
+			throw e;
+		}
 	}
 }

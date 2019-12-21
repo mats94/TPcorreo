@@ -53,13 +53,13 @@ public class Administrador extends JPanel implements ActionListener{
 	            System.exit(0);
 	        }
 			else if (e.getSource()==cemp){
-				myhandler.alta();		
+				myhandler.UsuarioAlta();		
 			}
 			else if (e.getSource()==eemp){
-				myhandler.baja();
+				myhandler.UsuarioBaja();
 			}
 			else if (e.getSource()==memp){
-				myhandler.modificacion();
+				myhandler.UsuarioModificacion();
 			}
 			
 		}

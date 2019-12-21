@@ -1,1 +1,5 @@
 /bin/
+sql/testdb.script
+sql/testdb.properties
+sql/testdb.data
+sql/testdb.backup

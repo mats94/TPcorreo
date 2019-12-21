@@ -1,6 +1,9 @@
 package interfaces;
 
 import javax.swing.*;
+
+import utils.TPException;
+
 import java.awt.*;
 import java.awt.event.*;
  
@@ -69,12 +72,22 @@ class Login extends JFrame implements ActionListener
 			if (ae.getSource()==salir) {
 	            System.exit(0);
 	        }
-			
+			try {
+			myhandler.authUser(value1, value2);
+			}catch(TPException e) {
+				if(e.getMensaje() == "empleado") {
+					myhandler.ManejoEnviosFrame();
+				}
+				else if(e.getMensaje() == "administrador") {
+					myhandler.AdministradorFrame();
+				}
+				else {
+					myhandler.mostrarERROR("Usuario y password invalidos");
+				}
+			}
 			if (value1.equals("test") && value2.equals("test")) {
-				//JOptionPane.showMessageDialog(this,"Logiado exitosamente", 
-				 // "Correcto",JOptionPane.DEFAULT_OPTION);
 				myhandler.ManejoEnviosFrame();
-				//this.dispose();
+
 			}
 			else if(value1.equals("admin") && value2.equals("admin")) {
 				myhandler.AdministradorFrame();

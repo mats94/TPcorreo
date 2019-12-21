@@ -12,6 +12,7 @@ public class DBManager {
 	private static final String DB_USERNAME = "sa";
 	private static final String DB_PASSWORD = "";
 	
+	//Singleton
 	public static Connection connect() {
 		Connection c = null;
 		try {
